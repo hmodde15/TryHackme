@@ -21,3 +21,5 @@ Avec ces découvertes, on peut se référer de nouveau à l'aide-mémoire pour p
 
 Dans la partie 2, la chaine en base64 fait mention d'un fichier update.zip
 
+![Tryhackme](00-Images/base64decode.png)
+
