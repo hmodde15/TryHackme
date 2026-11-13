@@ -34,11 +34,22 @@ On met un flitre sur chrome.exe et .doc
 
 ![Tryhackme](00-Images/doc.png)
 
-reponse : free_magicules.doc
+réponse : free_magicules.doc
 
 2 - Quel est le nom de l'utilisateur et de la machine compromis ? - Format : nom d'utilisateur-nom de la machine
 
-3 - 
+![Tryhackme](00-Images/user.png)
+
+réponse : benimaru-TEMPEST
+
+3 - Quel est le PID du processus Microsoft Word ayant ouvert le document malveillant ?
+
+![Tryhackme](00-Images/pid1.png)
+
+![Tryhackme](00-Images/pid2.png)
+
+réponse : 496
+
 
 
 
