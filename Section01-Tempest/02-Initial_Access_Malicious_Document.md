@@ -22,9 +22,9 @@ Pour vous aider, vous pouvez vous appuyer sur l'aide-mémoire rédigé par l'éq
 
 ---
 
-### Question
+### Question :
 
-L'utilisateur de cette machine a été compromis par un document malveillant. Quel est le nom de fichier du document ?
+1 - L'utilisateur de cette machine a été compromis par un document malveillant. Quel est le nom de fichier du document ?
 
 Pour l’analyse, on exporte d’abord le journal .evtx en CSV avec l'outil EvtxECmd.
 
