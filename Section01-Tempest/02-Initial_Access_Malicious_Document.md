@@ -20,11 +20,7 @@ Pour vous aider, vous pouvez vous appuyer sur l'aide-mémoire rédigé par l'éq
   - **Event ID 1** : création de processus (Process Creation)
   - **Event ID 22** : requêtes DNS (DNS Query)
 
-## Sources de données importantes
-
-- Sysmon
-
-  ---
+---
 
 ### Question
 
