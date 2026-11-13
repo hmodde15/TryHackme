@@ -30,7 +30,13 @@ Pour vous aider, vous pouvez vous appuyer sur l'aide-mémoire rédigé par l'éq
 
 L'utilisateur de cette machine a été compromis par un document malveillant. Quel est le nom de fichier du document ?
 
-Pour l’analyse, on exporte d’abord le journal .evtx en CSV avec l'outil EvtxECmd
+Pour l’analyse, on exporte d’abord le journal .evtx en CSV avec l'outil EvtxECmd.
 
 ![Tryhackme](00-Images/csv.png)
+
+On met un flitre sur chrome.exe et .doc
+
+![Tryhackme](00-Images/doc.png)
+
+reponse : free_magicules.doc
   
