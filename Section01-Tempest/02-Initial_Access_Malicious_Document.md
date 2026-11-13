@@ -23,3 +23,14 @@ Pour vous aider, vous pouvez vous appuyer sur l'aide-mémoire rédigé par l'éq
 ## Sources de données importantes
 
 - Sysmon
+
+  ---
+
+### Question
+
+L'utilisateur de cette machine a été compromis par un document malveillant. Quel est le nom de fichier du document ?
+
+Pour l’analyse, on exporte d’abord le journal .evtx en XML depuis l’Observateur d’événements. 
+
+On peut ensuite l’importer dans SysmonView, qui est très pratique pour visualiser les événements Sysmon. En filtrant sur le processus WINWORD.EXE, on remarque un document Word qui semble modifier des clés de registre.
+  
