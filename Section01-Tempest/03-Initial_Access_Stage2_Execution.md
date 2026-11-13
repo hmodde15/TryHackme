@@ -19,7 +19,7 @@ Avec ces découvertes, on peut se référer de nouveau à l'aide-mémoire pour p
 
 1 - L'exécution malveillante de la charge utile a entraîné l'écriture d'un fichier sur le système. Quel est le chemin d'accès complet de la charge utile ?
 
-Dans la partie 2, la chaine en base64 fait mention d'un fichier update.zip
+Dans la partie 2, la chaine en base64 fait mention d'un fichier update.zip :
 
 ![Tryhackme](00-Images/base64decode.png)
 
