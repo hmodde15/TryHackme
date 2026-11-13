@@ -23,3 +23,7 @@ Dans la partie 2, la chaine en base64 fait mention d'un fichier update.zip :
 
 ![Tryhackme](00-Images/base64decode.png)
 
+2 - La charge utile implantée s'exécute une fois que l'utilisateur se connecte à la machine. Quelle est la commande exécutée lors de la connexion réussie de l'utilisateur compromis ?
+
+1. Autostart → parent = explorer.exe
+À l’ouverture de session, c’est explorer.exe (le shell Windows) qui lance tout ce qui se trouve dans le dossier Startup. Le fichier extrait de update.zip aura donc explorer.exe comme parent, et plus WINWORD.EXE. La piste Word s’arrête là, il faut continuer depuis explorer.exe.
