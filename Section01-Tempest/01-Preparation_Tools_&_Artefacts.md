@@ -146,12 +146,12 @@ Cet outil permet de voir facilement les événements corrélés à un processus 
 
 ### Question :
 
-What is the SHA256 hash of the capture.pcapng file?
+Quel est le hash SHA256 du fichier capture.pcapng ?
 
-What is the SHA256 hash of the sysmon.evtx file?
+Quel est le hash SHA256 du fichier sysmon.evtx ?
 
-What is the SHA256 hash of the windows.evtx file?
+Quel est le hash SHA256 du fichier windows.evtx ?
 
-
+![Tryhackme](00-Images/sha.png)
 
 
