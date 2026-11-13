@@ -90,11 +90,12 @@ $app=[Environment]::GetFolderPath('ApplicationData');cd "$app\Microsoft\Windows\
 
 La charge contenue dans `update.zip` s'exécutera **à chaque connexion de l'utilisateur** : c'est un mécanisme de **persistance**.
 
-## Éléments utiles pour l'investigation
+6 - Quel est le numéro CVE de l'exploit utilisé par l'attaquant pour parvenir à une exécution de code à distance ?
 
-- **Domaine malveillant** : `phishteam.xyz` → à rechercher dans les Event ID 22 (DNS) et dans le pcap.
-- **URL complète** : `http://phishteam.xyz/02dcf07/update.zip`
-- **Technique MITRE ATT&CK** : T1547.001 (Registry Run Keys / Startup Folder).
-- **Prochaine étape** : chercher les Event ID 11 (création de fichier) dans le dossier `Startup` pour identifier le fichier extrait du zip.
+Sur la photo de la question 5, on peut voir que l'outil msdt.exe est utilisé.
 
-  
+En faisant des recherche, la CVE qui correspond à cette exploit est CVE-2022-30190 connu sous le nom de Follina.
+
+![Tryhackme](00-Images/follina.png)
+
+
