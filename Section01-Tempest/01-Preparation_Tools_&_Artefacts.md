@@ -141,3 +141,17 @@ Avant de l'utiliser, il faut exporter le contenu du fichier de logs en XML depui
 3. Choisissez le chemin de l'image (image path) et le GUID de session pour afficher la vue cartographiée.
 
 Cet outil permet de voir facilement les événements corrélés à un processus donné. Dans l'exemple de la room, la vue résume tous les événements Sysmon liés à `explorer.exe`.
+
+---
+
+### Question :
+
+What is the SHA256 hash of the capture.pcapng file?
+
+What is the SHA256 hash of the sysmon.evtx file?
+
+What is the SHA256 hash of the windows.evtx file?
+
+
+
+
