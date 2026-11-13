@@ -35,4 +35,11 @@ On met un flitre sur chrome.exe et .doc
 ![Tryhackme](00-Images/doc.png)
 
 reponse : free_magicules.doc
+
+2 - Quel est le nom de l'utilisateur et de la machine compromis ? - Format : nom d'utilisateur-nom de la machine
+
+3 - 
+
+
+
   
