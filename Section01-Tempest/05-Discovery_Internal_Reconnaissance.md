@@ -120,9 +120,8 @@ Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----                                                                   
 -a----        6/21/2022   1:17 AM        8230912 ch.exe
 
-netstat -ano -p tcp
-
-  Active Connections
+netstat -ano -p tcp -
+Active Connections
 
   Proto  Local Address          Foreign Address        State           PID
   TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       864
@@ -134,15 +133,24 @@ netstat -ano -p tcp
   TCP    0.0.0.0:47001          0.0.0.0:0              LISTENING       4
   TCP    0.0.0.0:49664          0.0.0.0:0              LISTENING       476
   TCP    0.0.0.0:49665          0.0.0.0:0              LISTENING       1212
-  TCP    0.0.0.0:49666          0.0.0.0:0              LISTENING       1660
+  TCP    0.0.0.0:49666          0.0.0.0:0              LISTENING       1760
   TCP    0.0.0.0:49667          0.0.0.0:0              LISTENING       2424
   TCP    0.0.0.0:49671          0.0.0.0:0              LISTENING       624
   TCP    0.0.0.0:49676          0.0.0.0:0              LISTENING       608
   TCP    192.168.254.107:139    0.0.0.0:0              LISTENING       4
-  TCP    192.168.254.107:...    ...:80                 TIME_WAIT       0
+  TCP    192.168.254.107:51802  52.139.250.253:443     ESTABLISHED     3216
+  TCP    192.168.254.107:51839  34.104.35.123:80       TIME_WAIT       0
   TCP    192.168.254.107:51858  104.101.22.128:80      TIME_WAIT       0
   TCP    192.168.254.107:51860  20.205.146.149:443     TIME_WAIT       0
-  TCP    192.168.254.107:51861  204.79.197.200:443     ESTABLISHED     4352                                                           
+  TCP    192.168.254.107:51861  204.79.197.200:443     ESTABLISHED     4352
+  TCP    192.168.254.107:51871  20.190.144.169:443     TIME_WAIT       0
+  TCP    192.168.254.107:51876  52.178.17.2:443        ESTABLISHED     4388
+  TCP    192.168.254.107:51878  20.60.178.36:443       ESTABLISHED     4388
+  TCP    192.168.254.107:51881  52.109.124.115:443     ESTABLISHED     4388
+  TCP    192.168.254.107:51882  52.139.154.55:443      ESTABLISHED     4388
+  TCP    192.168.254.107:51884  40.119.211.203:443     ESTABLISHED     4388
+  TCP    192.168.254.107:51895  52.152.90.172:443      ESTABLISHED     5508
+  TCP    192.168.254.107:51896  20.44.229.112:443      ESTABLISHED     8904                                                        
 
 ```
 réponse : infernotempest
