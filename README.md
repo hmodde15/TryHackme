@@ -5,7 +5,7 @@ SAL1 – Exercices finaux (TryHackMe)
 Ce dossier contient mes réponses et notes de travail pour les exercices finaux de la certification SAL1 (SOC Analyst Level 1) de TryHackMe.
 
 Objectif : 
-Garder une trace de ma démarche d'analyse sur les scénarios de fin de parcours.
+Garder une trace les exercices et la méthodologie.
 Documenter la méthodologie utilisée (triage d'alertes, investigation, escalade).
 Me servir de support de révision pour la suite de mon parcours.
 
