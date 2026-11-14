@@ -23,3 +23,8 @@ _path=="http" "<domaine>" id.resp_p==<port> | cut ts, host, id.resp_p, uri | sor
 1 - L'attaquant a réussi à découvrir un fichier sensible sur la machine de l'utilisateur. Quel est le mot de passe découvert dans ce fichier ?
 
 On utilise la commande donné pour récupérer les requetes : _path=="http" "resolvecyber.xyz" id.resp_p==80 | cut ts, host, id.resp_p, uri | sort ts
+
+![Tryhackme](00-Images/file.png)
+
+On décode ensuite les requetes en base64 afin de décoder le trafic :
+
