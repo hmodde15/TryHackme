@@ -25,7 +25,7 @@ La commande est donc : _path=="http" "phishteam.xyz". On regarde ensuite la colo
 
 ![Tryhackme](00-Images/url.png)
 
-Réponse : http://phishteam.xyz/02dcf07/index.html
+réponse : http://phishteam.xyz/02dcf07/index.html
 
 2 - Quel est l'encodage utilisé par l'attaquant sur la connexion C2 ?
 
@@ -34,5 +34,29 @@ Le serveur C2 a pour adresse IP 167.71.122.162.
 ![Tryhackme](00-Images/ip.png)
 
 On peut retrouver une chaine en base64.
+
+3 - Le binaire malveillant de type C2 envoie une charge utile via un paramètre qui contient les résultats de la commande exécutée. Quel est le paramètre utilisé par ce binaire ?
+
+En observant la trame dans Wireshark, on observe que chaque commande encodé en base64 commence par le paramétré q=.
+
+4 - Le binaire malveillant de type C2 se connecte à une URL spécifique pour récupérer la commande à exécuter. Quelle est l'URL utilisée par ce binaire ?
+
+![Tryhackme](00-Images/base64c2.png)
+
+réponse : /9ab62b5
+
+5 - Quelle est la méthode HTTP utilisée par le binaire ?
+
+Il s'agit de requête GET.
+
+D'après l'agent utilisateur, quel langage de programmation l'attaquant a-t-il utilisé pour compiler le binaire ?
+
+![Tryhackme](00-Images/nim.png)
+
+réponse : il s'agit du user agent nim.
+
+
+
+
 
 
