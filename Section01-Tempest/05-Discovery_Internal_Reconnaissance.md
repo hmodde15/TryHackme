@@ -120,7 +120,10 @@ Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----                                                                   
 -a----        6/21/2022   1:17 AM        8230912 ch.exe                                                                 
 
-
-
 ```
+réponse : infernotempest
+
+2 - L'attaquant a ensuite dressé la liste des ports en écoute sur la machine. Quel est le port en écoute susceptible de permettre l'accès à un shell distant sur la machine ?
+
+
 
