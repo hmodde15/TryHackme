@@ -29,3 +29,5 @@ Réponse : http://phishteam.xyz/02dcf07/index.html
 
 2 - Quel est l'encodage utilisé par l'attaquant sur la connexion C2 ?
 
+Dans la partie 
+
