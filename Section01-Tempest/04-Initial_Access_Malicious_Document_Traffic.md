@@ -21,6 +21,11 @@ _path=="http" "<domaine malveillant>"
 1 - Quelle est l'URL de la charge utile malveillante intégrée au document ? Format : URL complète, incluant http://
 
 On utilise la requête dans Brim : _path=="http" "<domaine malveillant>". Le domaine malveillant est phishteam.xyz.
-La commande est donc : _path=="http" "phishteam.xyz".
+La commande est donc : _path=="http" "phishteam.xyz". On regarde ensuite la colonne "uri"
 
+![Tryhackme](00-Images/url.png)
+
+Réponse : http://phishteam.xyz/02dcf07/index.html
+
+2 - Quel est l'encodage utilisé par l'attaquant sur la connexion C2 ?
 
