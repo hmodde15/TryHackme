@@ -29,5 +29,10 @@ Réponse : http://phishteam.xyz/02dcf07/index.html
 
 2 - Quel est l'encodage utilisé par l'attaquant sur la connexion C2 ?
 
-Dans la partie 
+Le serveur C2 a pour adresse IP 167.71.122.162.
+
+![Tryhackme](00-Images/ip.png)
+
+On peut retrouver une chaine en base64.
+
 
