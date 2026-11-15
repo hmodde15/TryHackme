@@ -18,7 +18,7 @@ On peut aussi se référer à l'aide-mémoire Brim pour analyser rapidement le t
 ```
 _path=="http" "<domaine>" id.resp_p==<port> | cut ts, host, id.resp_p, uri | sort ts
 ```
-### Question
+### Question :
 
 1 - L'attaquant a réussi à découvrir un fichier sensible sur la machine de l'utilisateur. Quel est le mot de passe découvert dans ce fichier ?
 
