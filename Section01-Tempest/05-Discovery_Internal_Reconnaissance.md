@@ -161,7 +161,7 @@ En faisant des recherches sur internet, le port 5985 est utilisé pour la prise 
 
 ![Tryhackme](00-Images/5985.png)
 
-3 - L'attaquant a ensuite mis en place un proxy SOCKS inversé afin d'accéder aux services internes hébergés sur la machine. Quelle est la commande exécutée par l'attaquant pour établir cette connexion ?
+3 - L'attaquant a ensuite mis en place un reverse proxy afin d'accéder aux services internes hébergés sur la machine. Quelle est la commande exécutée par l'attaquant pour établir cette connexion ?
 
 
 
