@@ -157,7 +157,7 @@ réponse : infernotempest
 
 2 - L'attaquant a ensuite dressé la liste des ports en écoute sur la machine. Quel est le port en écoute susceptible de permettre l'accès à un shell distant sur la machine ?
 
-En faisant des recherches sur internet, le port 5985 est utilisé pour la prise en main à distance.
+En faisant des recherches sur internet, le port 5985 est utilisé pour la prise en main à distance (Winrm)
 
 ![Tryhackme](00-Images/5985.png)
 
@@ -189,6 +189,13 @@ On passe le hash dans virus total pour l'identifier :
 réponse : chisel
 
 L'attaquant a ensuite utilisé les identifiants récupérés sur la machine. D'après les opérations ayant suivi l'exécution du proxy SOCKS, quel service l'attaquant a-t-il utilisé pour s'authentifier ?
+
+Il s'agit de WinRM comme vu à la question 2 (port 5985).
+
+réponse : winrm
+
+
+
 
 
 
