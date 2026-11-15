@@ -188,7 +188,7 @@ On passe le hash dans virus total pour l'identifier :
 
 réponse : chisel
 
-L'attaquant a ensuite utilisé les identifiants récupérés sur la machine. D'après les opérations ayant suivi l'exécution du proxy SOCKS, quel service l'attaquant a-t-il utilisé pour s'authentifier ?
+6 - L'attaquant a ensuite utilisé les identifiants récupérés sur la machine. D'après les opérations ayant suivi l'exécution du proxy SOCKS, quel service l'attaquant a-t-il utilisé pour s'authentifier ?
 
 Il s'agit de WinRM comme vu à la question 2 (port 5985).
 
