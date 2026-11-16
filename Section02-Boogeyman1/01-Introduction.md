@@ -12,12 +12,6 @@ Cette room peut nécessiter l'ensemble des connaissances acquises dans le parcou
 * [Wireshark: Traffic Analysis](https://tryhackme.com/room/wiresharktrafficanalysis)
 * [Tshark: The Basics](https://tryhackme.com/r/room/tsharkthebasics)
 
-### Plateforme d'investigation
-
-Avant de commencer, déploie la machine jointe en cliquant sur le bouton **Start Lab Machine** en haut à droite de la tâche. L'initialisation des services peut prendre de 3 à 5 minutes.
-
-La machine démarre en vue partagée (split-screen). Si la VM n'est pas visible, utilise le bouton bleu **Show Split View** en haut à droite de la page.
-
 ### Artefacts
 
 Pour mener l'investigation, les artefacts suivants te sont fournis :
