@@ -32,4 +32,13 @@ Tu peux t'appuyer sur le tableau suivant pour parser les logs de cette tâche.
 
 1 - Quels sont les domaines utilisés par l'attaquant pour l'hébergement de fichiers et le C2 ? Indiquez les domaines par ordre alphabétique. (ex. : a.domain.com, b.domain.com)
 
-![Tryhackme](00-Images/mail.png)
+J'utilise cette commande pour parser les logs et je l'analyse ensuite : cat powershell.json | jq -s -c 'sort_by(.Timestamp) | .[] | {ScriptBlockText}'
+
+![Tryhackme](00-Images/domain1.png)
+
+![Tryhackme](00-Images/domain2.png)
+
+réponse : cdn.bpakcaging.xyz,files.bpakcaging.xyz
+
+
+
