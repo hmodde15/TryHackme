@@ -28,15 +28,31 @@ ubuntu@tryhackme$ lnkparse *FICHIER LNK*
 
 1 - Quelle est l’adresse e-mail utilisée pour envoyer l’e-mail de hameçonnage ?
 
+On ouvre le mail sur le client Thunderbird :
 
+![Tryhackme](00-Images/mail.png)
+
+L'adresse utilisé pour envoyer le mail est agriffin@bpakcaging.xyz
 
 2 - Quelle est l’adresse e-mail de la victime ?
 
-3 - Quel est le nom du service de relais de messagerie tiers utilisé par l'attaquant, d'après les en-têtes « DKIM-Signature » et « List-Unsubscribe » ?
+L'adresse de la victime est julianne.westcott@hotmail.com
+
+3 - Quel est le nom du service de relais de messagerie tiers utilisé par l'attaquant, d'après les en-têtes « DKIM » et « List-Unsubscribe » ?
+
+On regarde l’entête du mail. Après vérification, elasticemail est bien un service de relais de messagerie :
+
+![Tryhackme](00-Images/elastice.png)
 
 4 - Quel est le nom du fichier contenu dans la pièce jointe chiffrée ?
 
+On récupérè le fichier Invoice_20230103.lnk dans la pièce jointe du mail.
+
+![Tryhackme](00-Images/lnk.png)
+
 5 - Quel est le mot de passe de la pièce jointe chiffrée ?
+
+Le mot de passe est écrit dans le mail : Invoice2023!
 
 6 - D'après le résultat de l'outil lnkparse, quelle est la charge utile encodée présente dans le champ « Command Line Arguments » ?
 
