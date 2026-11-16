@@ -75,5 +75,9 @@ réponse : hex
 
 8 - Quel est l'outil utilisé pour l'exfiltration ?
 
+réponse : nslookup 
+
+
+
 
 
