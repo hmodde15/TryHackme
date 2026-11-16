@@ -32,4 +32,4 @@ Tu peux t'appuyer sur le tableau suivant pour parser les logs de cette tâche.
 
 1 - Quels sont les domaines utilisés par l'attaquant pour l'hébergement de fichiers et le C2 ? Indiquez les domaines par ordre alphabétique. (ex. : a.domain.com, b.domain.com)
 
-
+![Tryhackme](00-Images/mail.png)
