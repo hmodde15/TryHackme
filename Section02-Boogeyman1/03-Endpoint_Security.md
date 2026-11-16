@@ -40,5 +40,40 @@ J'utilise cette commande pour parser les logs et je l'analyse ensuite : cat powe
 
 réponse : cdn.bpakcaging.xyz,files.bpakcaging.xyz
 
+2 - Quel est le nom de l'outil d'énumération téléchargé par l'attaquant ?
+
+On peut voir le téléchargement de l'outil seatbelt.
+![Tryhackme](00-Images/seatbelt.png)
+
+réponse : seatbelt
+
+3 - Quel est le fichier auquel l'attaquant a accédé en utilisant le binaire sq3.exe téléchargé ? Indiquez le chemin d'accès complet au fichier, avec des barres obliques inverses (backslashes) échappées.
+
+![Tryhackme](00-Images/sq3exe.png)
+
+réponse : C:\\Users\\j.westcott\\AppData\\Local\\Packages\\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe\\LocalState\\plum.sqlite
+
+4 - Quel est le logiciel qui utilise le fichier dans la Q3 ?
+
+réponse : Microsoft Sticky Notes
+
+5 - Quel est le nom du fichier exfiltré ?
+
+![Tryhackme](00-Images/kdbx.png)
+
+réponse : protected_data.kdbx
+
+6 - Quel type de fichier utilise l’extension .kdbx ?
+
+Il s'agit d'une base keepass.
+
+7 - Quel est l'encodage utilisé lors de la tentative d'exfiltration du fichier sensible ?
+
+![Tryhackme](00-Images/hex.png)
+
+réponse : hex 
+
+8 - Quel est l'outil utilisé pour l'exfiltration ?
+
 
 
