@@ -30,4 +30,6 @@ Tu peux t'appuyer sur le tableau suivant pour parser les logs de cette tâche.
 
 ### Question :
 
-1 - What are the domains used by the attacker for file hosting and C2? Provide the domains in alphabetical order. (e.g. a.domain.com,b.domain.com)
+1 - Quels sont les domaines utilisés par l'attaquant pour l'hébergement de fichiers et le C2 ? Indiquez les domaines par ordre alphabétique. (ex. : a.domain.com, b.domain.com)
+
+
