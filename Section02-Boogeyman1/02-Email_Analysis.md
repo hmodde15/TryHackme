@@ -1,4 +1,4 @@
-## Le Boogeyman est là !
+# Le Boogeyman est là !
 
 Julianne, employée du service financier de Quick Logistics LLC, reçoit un e-mail de relance concernant une facture impayée de la part de son partenaire commercial, B Packaging Inc. À son insu, le document joint est malveillant et compromet son poste de travail.
 
@@ -6,7 +6,7 @@ L'équipe sécurité a réussi à repérer l'exécution suspecte de la pièce jo
 
 Tu es chargé d'analyser et d'évaluer l'impact de la compromission.
 
-### Guide d'investigation
+## Guide d'investigation
 
 D'après les informations initiales, on sait que la compromission a démarré par un e-mail de phishing. Commençons par analyser le fichier `dump.eml` situé dans le répertoire des artefacts. Il y a deux façons d'analyser les en-têtes et de reconstruire la pièce jointe :
 
@@ -24,3 +24,24 @@ Une fois le payload extrait de l'archive chiffrée, utilise `lnkparse` pour extr
 ```shell-session
 ubuntu@tryhackme$ lnkparse *FICHIER LNK*
 ```
+### Question : 
+
+1 - Quelle est l’adresse e-mail utilisée pour envoyer l’e-mail de hameçonnage ?
+
+
+
+2 - Quelle est l’adresse e-mail de la victime ?
+
+3 - Quel est le nom du service de relais de messagerie tiers utilisé par l'attaquant, d'après les en-têtes « DKIM-Signature » et « List-Unsubscribe » ?
+
+4 - Quel est le nom du fichier contenu dans la pièce jointe chiffrée ?
+
+5 - Quel est le mot de passe de la pièce jointe chiffrée ?
+
+6 - D'après le résultat de l'outil lnkparse, quelle est la charge utile encodée présente dans le champ « Command Line Arguments » ?
+
+
+
+
+
+
