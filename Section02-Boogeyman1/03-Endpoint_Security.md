@@ -43,6 +43,7 @@ réponse : cdn.bpakcaging.xyz,files.bpakcaging.xyz
 2 - Quel est le nom de l'outil d'énumération téléchargé par l'attaquant ?
 
 On peut voir le téléchargement de l'outil seatbelt.
+
 ![Tryhackme](00-Images/seatbelt.png)
 
 réponse : seatbelt
