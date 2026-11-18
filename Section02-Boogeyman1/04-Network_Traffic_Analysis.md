@@ -92,6 +92,8 @@ On se connecte avec le mot de passe et on récupére le numéro de carte bancair
 
 ![Tryhackme](00-Images/basekeepass.png)
 
+réponse : 4024007128269551
+
 
 
 
