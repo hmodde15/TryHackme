@@ -10,11 +10,17 @@ L'équipe sécurité a réussi à repérer des commandes suspectes exécutées s
 
 1 - Quelle adresse e-mail a été utilisée pour envoyer l'e-mail de hameçonnage ?
 
+On regarde l’entête du mail : 
 
+![Tryhackme](00-Images/westay.png) 
 
+réponse : westaylor23@outlook.com
 
 2 - Quelle est l'adresse e-mail de l'employé victime ?
 
+On suit l’entête :
+
+réponse : maxine.beck@quicklogisticsorg.onmicrosoft.com
 
 3 - Quel est le nom du document malveillant joint ?
 
