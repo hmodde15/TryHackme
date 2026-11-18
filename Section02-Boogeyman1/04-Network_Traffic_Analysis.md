@@ -33,6 +33,8 @@ réponse : python
 
 2 - Quelle méthode HTTP est utilisée par le C2 pour transmettre le résultat des commandes exécutées par l'attaquant ?
 
+On utilise le filtre : http.host contains bpakcaging.xyz
+
 ![Tryhackme](00-Images/post.png) 
 
 rappel : 
@@ -49,5 +51,13 @@ rappel :
 réponse : post 
 
 3 - Quel est le protocole utilisé lors de l’opération d’exfiltration ?
+
+L'outil utilisé est nslookup et on observe un gros trafic DNS dans la trame.
+
+réponse : DNS
+
+4 - Quel est le mot de passe du fichier exfiltré ?
+
+
 
 
