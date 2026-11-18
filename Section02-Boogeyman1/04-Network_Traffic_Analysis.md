@@ -58,6 +58,41 @@ réponse : DNS
 
 4 - Quel est le mot de passe du fichier exfiltré ?
 
+On sais que l'outil utilisé est sq3.exe.
+
+On utilise donc le filtre http contains sq3 :
+
+![Tryhackme](00-Images/httpsq3.png) 
+
+On regarde le paquet qui correspond à l'execution de l'outil puis ensuite on regarde celui d’âpres pour récupérer les infos transmise via la requete POST :
+
+![Tryhackme](00-Images/get.png) 
+
+![Tryhackme](00-Images/post1.png) 
+
+On décode via cyberchef le traffic : 
+
+![Tryhackme](00-Images/cybersq3.png) 
+
+réponse : %p9^3!lL^Mz47E2GaT^y
+
+Quel est le numéro de carte bancaire contenu dans le fichier exfiltré ?
+
+On récupére le traffic DNS transmis à l'attaquant avec tshark avec la commande : tshark -r capture.pcapng -Y "dns && ip.dst == 167.71.211.113" -T fields -e dns.qry.name | awk '!seen[$0]++' > dns.txt
+
+![Tryhackme](00-Images/tshark.png) 
+
+Puis je retire le domaine pour avoir un fichier propre : grep '\.bpakcaging\.xyz$' dns.txt | cut -d'.' -f1 | tr -d '\n' | xxd -r -p > dns.kdbx
+
+![Tryhackme](00-Images/xxd.png) 
+
+On ouvre ensuite la base keepass avec keepass2 dns.kdbx
+
+On se connecte avec le mot de passe et on récupére le numéro de carte bancaire :
+
+![Tryhackme](00-Images/basekeepass.png)
+
+
 
 
 
