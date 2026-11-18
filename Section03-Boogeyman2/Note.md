@@ -26,9 +26,16 @@ Déclarés par l'expéditeur → un attaquant peut mettre ce qu'il veut. À vér
 | `Return-Path` | où reviennent les rebonds (bounces) | souvent le **vrai** domaine d'envoi |
 | `Subject` | objet | — |
 | `Date` | date déclarée | peut être incohérente avec les `Received` |
+| `Message-ID` | identifiant unique du mail | son domaine devrait coller au `From` — s'il vient d'ailleurs, c'est louche |
 
 **1er réflexe :** comparer `From` / `Reply-To` / `Return-Path`.
 Domaines différents = suspect.
+
+> **`Message-ID`** : c'est le « numéro de série » du mail, généré par le serveur
+> d'envoi, du type `<abc123@serveur-expediteur.com>`. Utile pour deux choses :
+> retrouver le mail précis dans des logs, et vérifier que le domaine après le `@`
+> correspond bien à l'expéditeur annoncé. Un `Message-ID` forgé à la main ou
+> incohérent est un indice de plus.
 
 ---
 
@@ -50,6 +57,13 @@ Received: from mail.attaquant.com (mail.attaquant.com [203.0.113.5])
 - `from ...` → qui prétend envoyer + **IP réelle** entre crochets `[203.0.113.5]`
 - `by ...` → serveur qui a reçu
 - l'IP de la ligne la plus basse = ton **meilleur IOC**
+
+> **`X-Originating-IP`** : certains serveurs ajoutent ce champ pour indiquer
+> directement l'IP de la machine qui a composé le mail. Quand il est présent,
+> c'est un raccourci vers l'IP d'origine — mais il n'est pas toujours là, et
+> comme tout champ `X-` il peut être ajouté/falsifié. Donc tu le prends comme
+> indice, et tu le **recoupes** avec la ligne `Received` la plus basse plutôt
+> que de lui faire confiance seul.
 
 ---
 
@@ -75,6 +89,38 @@ Authentication-Results: mx.quicklogistics.com;
 
 ⚠️ Un SPF `pass` ne veut PAS dire « mail sûr » : juste que l'IP est autorisée pour **ce** domaine.
 Un attaquant depuis son propre domaine aura un `pass` légitime. `pass` + domaine bizarre = quand même suspect.
+
+---
+
+## 3 bis. Champs MIME / Content (le corps et les pièces jointes)
+
+Ces champs ne parlent pas de l'expéditeur mais du **contenu** du mail : son format,
+et surtout ses pièces jointes. C'est là qu'on repère le fichier malveillant.
+
+| Champ | Ce qu'il dit |
+|---|---|
+| `MIME-Version` | version du standard MIME (quasi toujours `1.0`) — simple marqueur, peu d'intérêt en analyse |
+| `Content-Type` | le type du contenu : `text/plain`, `text/html`, ou pour une pièce jointe `application/pdf`, `application/zip`… |
+| `Content-Disposition` | dit si c'est du contenu affiché (`inline`) ou une **pièce jointe** (`attachment; filename="CV.doc"`) — donne souvent le **nom du fichier** |
+| `Content-Transfer-Encoding` | comment le contenu est encodé pour le transport, très souvent **`base64`** |
+
+Comment ça s'enchaîne, concrètement : un mail avec pièce jointe est découpé en
+**parties** (le texte d'un côté, le fichier de l'autre). Chaque partie a son propre
+`Content-Type`. La partie pièce jointe affiche :
+
+```
+Content-Type: application/zip; name="CV_candidat.zip"
+Content-Disposition: attachment; filename="CV_candidat.zip"
+Content-Transfer-Encoding: base64
+
+UEsDBBQAAAAIA... (le fichier, encodé en base64)
+```
+
+Ce que tu en tires :
+- `Content-Disposition: attachment` → il y a bien un fichier joint, et son **nom**
+- `Content-Type` → son **type réel** (attention si l'extension ne colle pas au type)
+- `Content-Transfer-Encoding: base64` → le gros bloc en dessous est le fichier,
+  encodé → à **décoder** pour l'analyser (voir dernière section)
 
 ---
 
