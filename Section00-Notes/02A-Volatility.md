@@ -266,7 +266,7 @@ utile : `41.168.5.140`
 
 Le fichier mémoire se trouve dans : `/Scenarios/Investigations/Investigation-1.vmem`
 
-## Cas 002 – Ça m'a un peu blessé
+Cas 002 – Ça m'a un peu blessé
 
 On t'informe que ton entreprise a été touchée par une chaîne de **ransomware** qui
 frappe des entreprises à l'international. Ton équipe a déjà récupéré la **clé de
