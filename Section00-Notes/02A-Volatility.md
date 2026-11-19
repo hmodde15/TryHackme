@@ -317,10 +317,61 @@ réponse : 1484
 
 7 - Quel agent utilisateur a été utilisé par l’adversaire dans le cas 001 ?
 
+J'ai utilisé les indices pour répondre à la question :
 
+1. Le dump mémoire du processus
+bash
+vol -f Investigation-1.vmem -o /home/user windows.memmap.Memmap --pid 1640 --dump
 
+J'ai extrait toute la mémoire du processus 1640 (le processus suspect) depuis le dump global, et je l'ai  écrite dans un fichier : pid.1640.dmp.
 
+Analogie : le .vmem c’est la photo de toute la RAM de la machine. Là, tu as découpé juste la part qui appartient au processus 1640 pour l’étudier isolément. Ce .dmp contient tout ce que ce processus avait en mémoire : son code, ses données, les chaînes de caractères qu’il manipulait (URL, chemins, commandes…).
 
+Ensuite 
 
+bash
+strings pid.1640.dmp | grep -i "user-agent"
 
+strings sort des milliers de lignes. Le | grep filtre pour ne garder que celles contenant « user-agent » (le -i = insensible à la casse, donc il attrape aussi User-Agent, USER-AGENT…).
 
+Autre exemple qui pourrait servir dans d'autres exercices :
+
+# URL / liens HTTP
+strings pid.1640.dmp | grep -iE "http://|https://"
+
+# Adresses IP (format x.x.x.x)
+strings pid.1640.dmp | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}"
+
+# Noms de domaine courants
+strings pid.1640.dmp | grep -iE "\.com|\.net|\.xyz|\.ru|\.top"
+
+# En-têtes HTTP (révèlent la communication C2)
+strings pid.1640.dmp | grep -iE "user-agent|host:|cookie:|referer|POST|GET"
+
+# Chemins de fichiers Windows
+strings pid.1640.dmp | grep -iE "C:\\\\|\.exe|\.dll|\.bat|\.ps1"
+
+# Clés de registre (persistance)
+strings pid.1640.dmp | grep -iE "HKLM|HKCU|CurrentVersion\\\\Run|Software\\\\Microsoft"
+
+# Commandes / outils suspects
+strings pid.1640.dmp | grep -iE "powershell|cmd.exe|wscript|rundll32|regsvr32|certutil"
+
+# Dossiers temp (où les malwares se déposent souvent)
+strings pid.1640.dmp | grep -iE "Temp|AppData|ProgramData|Downloads"
+
+# Adresses e-mail
+strings pid.1640.dmp | grep -iE "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}"
+
+# Mots-clés d'authentification
+strings pid.1640.dmp | grep -iE "password|passwd|login|username|token|apikey"
+
+# Adresses e-mail
+strings pid.1640.dmp | grep -iE "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}"
+
+# Mots-clés d'authentification
+strings pid.1640.dmp | grep -iE "password|passwd|login|username|token|apikey"
+
+![Tryhackme](00-Images/useragent.png)
+
+réponse : Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)
