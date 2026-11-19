@@ -466,7 +466,15 @@ WanaDecryptor => Ransomware Wannacry.
 
 réponse : WannaCry
 
-14 - 
+14 - Quelle DLL est chargée par le déchiffreur utilisé pour la création de sockets dans le cas 002 ?
+
+On utilise la commande vol -f Investigation-2.raw windows.dlllist | grep -i "@WanaDecryptor@"
+
+![Tryhackme](00-Images/dll.png)
+
+En faisait des recherches, la dll qui sert à crée des sockets est WS2_32.dll
+
+15 - 
 
 
 
