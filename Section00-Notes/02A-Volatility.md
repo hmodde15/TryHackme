@@ -16,9 +16,7 @@ Comme Volatility est totalement indépendant du système analysé, cela permet u
 d'exécution du système.
 
 Au moment de la rédaction, il existe deux dépôts principaux pour Volatility : l'un
-construit sur Python 2, l'autre sur Python 3. Pour cette room, nous recommandons
-d'utiliser la version **Volatility 3**, basée sur Python 3 :
-https://github.com/volatilityfoundation/volatility3
+construit sur Python 2, l'autre sur Python 3.
 
 Note : en lisant des articles de blog sur Volatility, tu pourras croiser la syntaxe
 de Volatility 2. 
