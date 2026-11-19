@@ -23,8 +23,6 @@ https://github.com/volatilityfoundation/volatility3
 Note : en lisant des articles de blog sur Volatility, tu pourras croiser la syntaxe
 de Volatility 2. 
 
----
-
 L'extraction d'une image mémoire peut être effectuée de différentes manières, selon les besoins de votre investigation :
 
 | Outil | Note |
