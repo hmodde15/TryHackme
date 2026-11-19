@@ -26,7 +26,7 @@ Les colonnes par défaut sont pauvres. Pour l'analyse, ajoute :
 Task Manager **n'affiche PAS la relation parent-enfant** entre processus.
 Or le parent est un critère clé pour détecter un intrus.
 
-Exemple du cours : un `svchost.exe` a le PID 384, alors que son parent légitime
+Exemple : un `svchost.exe` a le PID 384, alors que son parent légitime
 `services.exe` a le PID 632. Un PID enfant « avant » son parent n'a pas de sens →
 en réalité Task Manager masque juste la filiation. Pour la voir, il faut d'autres
 outils : **Process Hacker** et **Process Explorer**.
