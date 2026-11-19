@@ -251,8 +251,6 @@ avancés en mémoire :
 * `moddump`
 * `handles`
 
----
-
 ## Contexte des exercices :
 
 Cas 001 – BOB ! CE N'EST PAS UN CHEVAL !
