@@ -512,7 +512,7 @@ On utilise la commande : vol -f Investigation-2.raw windows.handles | grep 1940
 
 16 - Quel plugin pourrait être utilisé pour identifier tous les fichiers chargés depuis le répertoire de travail du logiciel malveillant dans le cas 002 ?
 
-Apres des recherches sur l'outil on peut utiliser windows.filescan
+réponse : windows.filescan
 
 
 
