@@ -188,3 +188,63 @@ Concrètement, il lance les processus de base de **chaque session** :
 se ferment). Il crée les sessions et lance `csrss.exe` / `wininit.exe` (Session 0)
 et `csrss.exe` / `winlogon.exe` (Session 1).
 
+---
+
+## Partie 4 – csrss.exe (Client Server Runtime Process)
+
+`csrss.exe` est la **face user-mode** du sous-système Windows. C'est un processus
+**critique** : il tourne en permanence, et s'il est tué, c'est le **crash
+complet** du système (écran bleu / arrêt). Les malwares le savent, d'où les
+tentatives de se cacher derrière son nom.
+
+- gère la **console Win32** (les fenêtres de type invite de commandes)
+- s'occupe de la **création et suppression des threads** de processus
+- rend l'**API Windows** disponible aux autres processus
+- **mappe les lettres de lecteur** (C:, D:…)
+- gère le **processus d'arrêt** de Windows (shutdown)
+
+Pour chaque instance, il charge notamment les DLL `csrsrv.dll`, `basesrv.dll` et
+`winsrv.dll`.
+
+> Rappel de la partie précédente : `csrss.exe` (et `winlogon.exe`) sont appelés
+> par `smss.exe` au démarrage pour la Session 1. Et comme il y a une instance par
+> session, on en retrouve aussi un en Session 0.
+
+### Le point clé sur le parent
+`csrss.exe` est lancé par `smss.exe`… **mais** `smss.exe` s'**auto-termine** juste
+après avoir créé la session. Conséquence :
+
+> Dans Process Explorer / Hacker, `csrss.exe` apparaît **sans parent visible**
+> (le parent est « mort »). **C'est normal.** Si tu vois au contraire un **vrai
+> parent actif** pour csrss.exe, c'est justement ça qui est suspect.
+
+C'est contre-intuitif pour un débutant : ici, **l'absence de parent = signe de
+légitimité**.
+
+### Comportement NORMAL
+
+| Attribut | Valeur attendue |
+|---|---|
+| **Image Path** | `%SystemRoot%\System32\csrss.exe` (`C:\Windows\System32\csrss.exe`) |
+| **Parent** | créé par une instance de `smss.exe`… qui s'est **auto-terminée** → pas de parent visible |
+| **Instances** | **deux ou plus** (une par session : Session 0 + Session 1 au minimum) |
+| **Compte** | Local System |
+| **Démarrage** | quelques secondes après le boot pour les deux premières instances (Session 0 et 1). Les suivantes apparaissent à la création de nouvelles sessions — mais en général seules les sessions 0 et 1 existent |
+
+Exemple du cours : `csrss.exe` en Session 0 (PID 392) et en Session 1 (PID 512).
+
+### Comportement SUSPECT (red flags)
+
+- **un vrai processus parent actif** → smss.exe appelle csrss puis s'auto-termine ;
+  si csrss a un parent bien vivant, c'est anormal.
+- **un chemin autre que `C:\Windows\System32`** → imposteur classique.
+- **des fautes d'orthographe subtiles** dans le nom pour se faire passer pour
+  csrss.exe : `csrsss.exe`, `csrss32.exe`, `csrs.exe`, un « l » minuscule à la
+  place d'un « i »… → technique de **masquerading**, regarde le nom caractère par
+  caractère.
+- **un utilisateur autre que SYSTEM** → il doit tourner en compte SYSTEM.
+
+`csrss.exe` = critique (le tuer = crash), chemin **System32**, compte **SYSTEM**,
+**2 instances ou plus** (une par session), et surtout **pas de parent visible**
+(car smss.exe s'auto-termine). Méfie-toi des **fautes d'orthographe** dans le nom.
+
