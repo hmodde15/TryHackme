@@ -320,16 +320,15 @@ réponse : 1484
 J'ai utilisé les indices pour répondre à la question :
 
 1. Le dump mémoire du processus
-bash
+
 vol -f Investigation-1.vmem -o /home/user windows.memmap.Memmap --pid 1640 --dump
 
 J'ai extrait toute la mémoire du processus 1640 (le processus suspect) depuis le dump global, et je l'ai  écrite dans un fichier : pid.1640.dmp.
 
 Analogie : le .vmem c’est la photo de toute la RAM de la machine. Là, tu as découpé juste la part qui appartient au processus 1640 pour l’étudier isolément. Ce .dmp contient tout ce que ce processus avait en mémoire : son code, ses données, les chaînes de caractères qu’il manipulait (URL, chemins, commandes…).
 
-Ensuite 
+2. La recherche du user-agent
 
-bash
 strings pid.1640.dmp | grep -i "user-agent"
 
 strings sort des milliers de lignes. Le | grep filtre pour ne garder que celles contenant « user-agent » (le -i = insensible à la casse, donc il attrape aussi User-Agent, USER-AGENT…).
