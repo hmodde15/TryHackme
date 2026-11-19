@@ -4,7 +4,7 @@ Volatility est un outil gratuit de forensic mémoire développé et maintenu par
 
 Volatility est disponible pour Windows, Linux et Mac OS, et est écrit entièrement en Python.
 
-Volatility est le framework le plus utilisé au monde pour extraire des artefacts numériques depuis des échantillons demémoire volatile (RAM). 
+Volatility est le framework le plus utilisé au monde pour extraire des artefacts numériques depuis des échantillons de mémoire volatile (RAM). 
 Les techniques d'extraction sont réalisées de manière totalement indépendante du système analysé, tout en offrant une visibilité sur
 l'état d'exécution (runtime) du système. 
 
