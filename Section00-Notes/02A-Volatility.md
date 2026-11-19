@@ -422,3 +422,22 @@ strings pid.1640.dmp | grep -i "user-agent" -A 3 -B 3
 ![Tryhackme](00-Images/useragent.png)
 
 réponse : Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)
+
+8 - Chase Bank figurait-elle parmi les domaines bancaires suspects identifiés dans le dossier 001 ? (Oui/Non)
+
+On utilise la commande : strings pid.1640.dmp | grep -i "chase" 
+
+![Tryhackme](00-Images/chase.png)
+
+réponse : Y
+
+9 - Quel processus suspect est en cours d'exécution avec le PID 740 dans le cas 002 ?
+
+
+
+
+
+
+
+
+
