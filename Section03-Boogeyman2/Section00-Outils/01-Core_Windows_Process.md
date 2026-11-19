@@ -69,12 +69,10 @@ troisième (le parent), le plus parlant pour détecter un intrus.
 
 ## Partie 2 – System (PID 4)
 
-### Ce que c'est
 `System` est un processus **très particulier**. Contrairement aux autres, son PID
 n'est pas aléatoire : il est **toujours égal à 4**. Retiens ce chiffre, c'est un
 repère de détection.
 
-### Ce qu'il fait (expliqué simplement)
 Pour comprendre System, il faut la distinction **user mode / kernel mode** :
 
 - **User mode** : l'espace « bac à sable » où tournent les applications normales
