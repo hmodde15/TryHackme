@@ -69,8 +69,6 @@ Voici les préfixes d'OS disponibles :
 * `.linux`
 * `.mac`
 
----
-
 ## Profil d'image
 Par défaut, Volatility est livré avec tous les profils Windows existants, de
 Windows XP à Windows 10.
