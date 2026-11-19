@@ -295,6 +295,28 @@ réponse : 2012-07-22 02:45:08
 
 3 - Quel processus peut être considéré comme suspect dans le cas 001 ?
 
+On utilise la commande : vol -f Investigation-1.vmem windows.pstree
+
+![Tryhackme](00-Images/reader.png)
+
+On observe que reader_sl.exe a été lancé depuis explorer.exe
+
+réponse : reader_sl.exe
+
+4 - Quel est le processus parent du processus suspect dans le cas 001 ?
+
+réponse : explorer.exe
+
+5 - Quel est le PID du processus suspect dans le cas 001 ?
+
+réponse : 1640
+
+6 - Quel est le PID du processus parent dans le cas 001 ?
+
+réponse : 1484
+
+7 - Quel agent utilisateur a été utilisé par l’adversaire dans le cas 001 ?
+
 
 
 
