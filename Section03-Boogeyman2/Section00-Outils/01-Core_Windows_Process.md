@@ -129,3 +129,62 @@ Les processus **utilisateur** (ton `explorer.exe`, tes applis) tournent en
 **Session 1** (ou plus). Règle de détection : un processus **système** qui
 apparaît dans une session utilisateur — ou un processus utilisateur en Session 0 —
 est une **anomalie** à creuser.
+
+---
+
+## Partie 3 – smss.exe (Session Manager Subsystem)
+
+`smss.exe`, le **Session Manager Subsystem** (gestionnaire de sessions Windows),
+est responsable de la **création des nouvelles sessions**. Point important : c'est
+le **tout premier processus en mode utilisateur (user-mode)** lancé par le noyau.
+Autrement dit, juste après le noyau et `System`, c'est lui qui démarre.
+
+`smss.exe` met en route le sous-système Windows, à cheval sur les deux modes :
+- côté **kernel mode** : `win32k.sys`
+- côté **user mode** : `winsrv.dll` et `csrss.exe`
+
+Concrètement, il lance les processus de base de **chaque session** :
+- **Session 0** (côté système) : il démarre `csrss.exe` et `wininit.exe`
+- **Session 1** (côté utilisateur) : il démarre `csrss.exe` et `winlogon.exe`
+
+> **Le mécanisme malin à retenir :** l'instance « maître » de `smss.exe` se
+> **copie elle-même** dans chaque nouvelle session pour la créer, puis
+> **s'auto-termine** (l'enfant disparaît tout seul). C'est pour ça qu'en temps
+> normal tu ne vois qu'**un seul** `smss.exe` qui persiste : les copies enfants
+> ont déjà fini leur travail et se sont fermées.
+
+### Ses autres responsabilités
+- créer les **variables d'environnement**
+- gérer les **fichiers de pagination** de la mémoire virtuelle (virtual memory
+  paging files)
+- lancer `winlogon.exe` (le gestionnaire d'ouverture de session Windows)
+- lancer tout sous-système listé dans la valeur `Required` de la clé de registre :
+  `HKLM\System\CurrentControlSet\Control\Session Manager\Subsystems`
+
+### Comportement NORMAL
+
+| Attribut | Valeur attendue |
+|---|---|
+| **Image Path** | `%SystemRoot%\System32\smss.exe` (soit `C:\Windows\System32\smss.exe`) |
+| **Parent** | **System (PID 4)** |
+| **Instances** | **une** instance maître + une instance enfant **par session**, mais les enfants **se ferment** après avoir créé leur session → en pratique, **une seule** visible |
+| **Compte** | Local System (SYSTEM) |
+| **Démarrage** | quelques **secondes après le boot** (pour l'instance maître) |
+
+### Comportement SUSPECT (red flags)
+
+- **un parent autre que System (4)** → le vrai smss est toujours lancé par System.
+- **un chemin différent de `C:\Windows\System32`** → un `smss.exe` ailleurs
+  (ex. dans un dossier utilisateur ou temp) = imposteur classique.
+- **plus d'un processus smss.exe persistant** → les enfants s'auto-terminent ;
+  si tu vois plusieurs `smss.exe` qui restent, c'est anormal.
+- **un utilisateur autre que SYSTEM** → il doit tourner en compte SYSTEM.
+- **des entrées de registre inattendues** dans la clé `Subsystems` → un attaquant
+  peut y ajouter un sous-système malveillant pour qu'il soit lancé au démarrage
+  (technique de persistance).
+
+`smss.exe` = **premier processus user-mode**, parent **System (4)**, chemin
+**System32**, compte **SYSTEM**, et **une seule** instance visible (les enfants
+se ferment). Il crée les sessions et lance `csrss.exe` / `wininit.exe` (Session 0)
+et `csrss.exe` / `winlogon.exe` (Session 1).
+
