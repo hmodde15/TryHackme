@@ -13,7 +13,7 @@ sur **More details** (sinon tu ne vois presque rien).
 
 ### Notion de PID (process identifier)
 Chaque fois qu'un programme démarre, Windows lui attribue un **numéro unique**,
-le PID. Deux points importants pour un débutant :
+le PID  :
 - si un même programme tourne en plusieurs exemplaires (ex. plusieurs onglets
   Chrome), **chaque instance a son propre PID**.
 - les PID sont attribués **dans l'ordre de démarrage** et de façon globalement
