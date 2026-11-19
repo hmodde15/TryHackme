@@ -474,7 +474,40 @@ On utilise la commande vol -f Investigation-2.raw windows.dlllist | grep -i "@Wa
 
 En faisait des recherches, la dll qui sert à crée des sockets est WS2_32.dll
 
-15 - 
+15 - Quel mutex peut être identifié comme un indicateur connu du logiciel malveillant en question dans le cas 002 ?
+
+Mutex : l'idée de base
+
+Imagine une clé unique pour des toilettes : quand quelqu'un entre, il prend la clé,
+et tant qu'il ne l'a pas rendue, personne d'autre ne peut entrer. Le mutex, c'est
+ça : un **verrou nommé** que les programmes se passent pour ne pas se marcher dessus.
+
+Techniquement, en programmation classique, ça évite que **deux threads** modifient
+la même donnée en même temps (ce qui corromprait les données). Un thread « prend »
+le mutex, fait son travail, puis le « relâche ».
+
+Beaucoup de malwares créent un **mutex nommé** au démarrage, mais pour une autre raison : **éviter de d'infecter deux fois**
+la même machine.
+
+Le malware fonctionne comme ça :
+
+1. Au lancement, il vérifie : « est-ce qu'un mutex nommé `XYZ` existe déjà ? »
+2. S'il existe → une copie de moi tourne déjà → je m'arrête.
+3. S'il n'existe pas → je le crée, et je continue mon infection.
+
+Ça lui évite des bugs, des plantages ou d'attirer l'attention en tournant en double.
+
+### En quoi ça t'aide, toi, l'analyste
+
+Le nom du mutex devient un **IOC** (indicateur de compromission) précieux :
+
+* il est souvent **codé en dur** et **unique** à une famille de malware → il sert
+  de signature. Exemple célèbre : WannaCry utilisait le mutex
+  `MsWinZonesCacheCounterMutexA`.
+* tu peux **chasser** d'autres machines infectées en cherchant ce même mutex.
+* certains outils de défense « vaccinent » une machine en créant le mutex à
+  l'avance → le malware croit qu'il est déjà installé et ne s'exécute pas.
+
 
 
 
