@@ -69,4 +69,30 @@ Voici les préfixes d'OS disponibles :
 * `.linux`
 * `.mac`
 
+---
+
+## Profil d'image
+Par défaut, Volatility est livré avec tous les profils Windows existants, de
+Windows XP à Windows 10.
+
+Les profils d'image peuvent être difficiles à déterminer si tu ne connais pas
+exactement la version et le build de la machine dont tu as extrait le dump mémoire.
+Dans certains cas, on te fournit un fichier mémoire sans aucun contexte, et c'est à
+toi de déterminer par où commencer. Dans ce cas, Volatility te couvre avec le
+plugin `imageinfo`. Ce plugin prend le dump mémoire fourni et lui attribue une
+liste des meilleurs profils d'OS possibles. Les profils d'OS ont depuis été
+abandonnés (deprecated) avec Volatility 3 : nous n'aurons donc à nous soucier
+d'identifier le profil que si nous utilisons Volatility 2 — ce qui simplifie
+grandement l'analyse des dumps mémoire.
+
+Note : `imageinfo` n'est pas toujours correct et peut donner des résultats variés
+selon le dump fourni ; à utiliser avec prudence, et teste plusieurs profils de la
+liste proposée.
+
+Si nous cherchons quand même à obtenir des informations sur ce que fait tourner
+l'hôte à partir du dump mémoire, nous pouvons utiliser les trois plugins suivants :
+`windows.info`, `linux.info`, `mac.info`. Ce plugin fournit des informations sur
+l'hôte à partir du dump mémoire.
+
+Syntaxe : `python3 vol.py -f <fichier> windows.info`
 
