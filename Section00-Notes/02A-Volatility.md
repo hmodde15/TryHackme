@@ -47,3 +47,26 @@ l'hôte, selon l'hyperviseur utilisé.
 | **Hyper-V** | `.bin` | image mémoire de la VM |
 | **Parallels** | `.mem` | image mémoire de la VM |
 | **VirtualBox** | `.sav` | ⚠️ image mémoire **partielle** uniquement |
+
+---
+
+Depuis le passage à Python 3, la structure des plugins de Volatility a beaucoup
+changé. Dans les versions précédentes, tu devais identifier un **profil d'OS**
+correspondant exactement au système d'exploitation et à la version de build de
+l'hôte — ce qui pouvait être difficile à trouver, ou donner des faux positifs avec
+certains plugins. Avec Volatility 3, les profils ont été supprimés, et Volatility
+**identifie automatiquement** le système et la version du fichier mémoire.
+
+La façon de nommer les plugins a aussi changé. Dans les anciennes versions, le nom
+du plugin était simplement le nom du plugin, universel pour tous les systèmes et
+profils. Désormais, avec Volatility 3, tu dois **spécifier le système
+d'exploitation avant** le plugin à utiliser, par exemple `windows.info` vs
+`linux.info`. En effet, il n'y a plus de profils pour distinguer les systèmes, car
+chaque OS a des structures et un fonctionnement mémoire radicalement différents.
+Voici les préfixes d'OS disponibles :
+
+* `.windows`
+* `.linux`
+* `.mac`
+
+
