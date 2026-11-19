@@ -336,18 +336,31 @@ strings sort des milliers de lignes. Le | grep filtre pour ne garder que celles 
 
 Autre exemple qui pourrait servir dans d'autres exercices :
 
+# Recherche d'IOC dans un dump mémoire (strings + grep)
+
+Après avoir dumpé la mémoire d'un processus suspect :
+`vol -f dump.vmem -o /home/user windows.memmap.Memmap --pid <PID> --dump`
+→ on obtient `pid.<PID>.dmp`, qu'on fouille avec `strings | grep`.
+
+## Réseau
+
+```bash
 # URL / liens HTTP
 strings pid.1640.dmp | grep -iE "http://|https://"
 
 # Adresses IP (format x.x.x.x)
 strings pid.1640.dmp | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}"
 
-# Noms de domaine courants
+# Noms de domaine
 strings pid.1640.dmp | grep -iE "\.com|\.net|\.xyz|\.ru|\.top"
 
-# En-têtes HTTP (révèlent la communication C2)
+# En-têtes HTTP (communication C2)
 strings pid.1640.dmp | grep -iE "user-agent|host:|cookie:|referer|POST|GET"
+```
 
+## Système et exécution
+
+```bash
 # Chemins de fichiers Windows
 strings pid.1640.dmp | grep -iE "C:\\\\|\.exe|\.dll|\.bat|\.ps1"
 
@@ -357,20 +370,55 @@ strings pid.1640.dmp | grep -iE "HKLM|HKCU|CurrentVersion\\\\Run|Software\\\\Mic
 # Commandes / outils suspects
 strings pid.1640.dmp | grep -iE "powershell|cmd.exe|wscript|rundll32|regsvr32|certutil"
 
-# Dossiers temp (où les malwares se déposent souvent)
+# Dossiers temp (dépôt fréquent de malware)
 strings pid.1640.dmp | grep -iE "Temp|AppData|ProgramData|Downloads"
+```
 
+## Identifiants / données sensibles
+
+```bash
 # Adresses e-mail
 strings pid.1640.dmp | grep -iE "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}"
 
 # Mots-clés d'authentification
 strings pid.1640.dmp | grep -iE "password|passwd|login|username|token|apikey"
+```
 
-# Adresses e-mail
-strings pid.1640.dmp | grep -iE "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}"
+## Spécifique malware
 
-# Mots-clés d'authentification
-strings pid.1640.dmp | grep -iE "password|passwd|login|username|token|apikey"
+```bash
+# Encodage (base64 planqué = souvent du payload)
+strings pid.1640.dmp | grep -iE "base64|FromBase64|-enc|-EncodedCommand"
+
+# Ransomware : notes de rançon, cryptomonnaie
+strings pid.1640.dmp | grep -iE "bitcoin|wallet|ransom|decrypt|\.onion"
+
+# Mutex (évite la double exécution d'un malware)
+strings pid.1640.dmp | grep -iE "mutex|Global\\\\"
+```
+
+## Astuces de syntaxe
+
+```bash
+# Combiner plusieurs termes (| = OU dans une regex)
+strings pid.1640.dmp | grep -iE "http|\.exe|powershell|password"
+
+# Contexte autour de la ligne trouvée
+strings pid.1640.dmp | grep -i "user-agent" -A 3 -B 3
+# -A 3 = 3 lignes après | -B 3 = 3 lignes avant
+```
+
+## Logique
+
+| Tu cherches… | Pour prouver… |
+|---|---|
+| URL / IP / domaine | communication avec un C2 |
+| User-Agent | empreinte réseau du malware |
+| chemins .exe / Temp | où le malware s'est déposé |
+| clés Run du registre | la persistance |
+| powershell / certutil / base64 | la technique d'exécution |
+| bitcoin / .onion / ransom | un ransomware |
+
 
 ![Tryhackme](00-Images/useragent.png)
 
