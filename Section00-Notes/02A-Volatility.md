@@ -22,3 +22,25 @@ https://github.com/volatilityfoundation/volatility3
 
 Note : en lisant des articles de blog sur Volatility, tu pourras croiser la syntaxe
 de Volatility 2. 
+
+L'extraction d'une image mémoire peut être effectuée de différentes manières, selon les besoins de votre investigation. 
+
+Les outils : 
+
+FTK Imager
+Redline
+DumpIt.exe
+win32dd.exe / win64dd.exe
+Memoryze
+FastDump
+
+L'utilisation d'un outil d'extraction sur une machine physique peut prendre beaucoup de temps.
+
+La plupart des outils mentionnés ci-dessus génèrent un fichier au format « .raw ». Il existe toutefois des exceptions, comme Redline, qui peut utiliser son propre agent et sa propre structure de session.
+
+Dans le cas de machines virtuelles, l'obtention d'une image mémoire peut être réalisée simplement en récupérant le fichier de mémoire virtuelle sur le disque de la machine hôte. Le format de ce fichier varie en fonction de l'hyperviseur utilisé ; voici quelques exemples de fichiers de mémoire virtuelle que vous pourriez rencontrer :
+
+VMWare - .vmem
+Hyper-V - .bin
+Parallels - .mem
+VirtualBox - .sav (il s'agit ici d'une image mémoire partielle)
