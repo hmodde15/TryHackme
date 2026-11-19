@@ -476,7 +476,7 @@ En faisait des recherches, la dll qui sert à crée des sockets est WS2_32.dll
 
 15 - Quel mutex peut être identifié comme un indicateur connu du logiciel malveillant en question dans le cas 002 ?
 
-Mutex : l'idée de base
+Mutex ( mutant) : l'idée de base
 
 Imagine une clé unique pour des toilettes : quand quelqu'un entre, il prend la clé,
 et tant qu'il ne l'a pas rendue, personne d'autre ne peut entrer. Le mutex, c'est
@@ -505,6 +505,14 @@ Le nom du mutex devient un **IOC** (indicateur de compromission) précieux :
 * tu peux **chasser** d'autres machines infectées en cherchant ce même mutex.
 * certains outils de défense « vaccinent » une machine en créant le mutex à
   l'avance → le malware croit qu'il est déjà installé et ne s'exécute pas.
+
+On utilise la commande : vol -f Investigation-2.raw windows.handles | grep 1940
+
+![Tryhackme](00-Images/mutex.png)
+
+16 - Quel plugin pourrait être utilisé pour identifier tous les fichiers chargés depuis le répertoire de travail du logiciel malveillant dans le cas 002 ?
+
+Apres des recherches sur l'outil on peut utiliser windows.filescan
 
 
 
