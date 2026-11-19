@@ -40,7 +40,7 @@ Task Manager **ne montre PAS la relation parent-enfant** entre les processus.
 Or, savoir **quel processus en a lancé un autre** est un critère de détection
 majeur.
 
-Exemple concret du cours : `svchost.exe` devrait toujours être lancé par
+Exemple concret : `svchost.exe` devrait toujours être lancé par
 `services.exe`. Dans Task Manager on voit un `svchost.exe` avec le PID 384 et
 `services.exe` avec le PID 632. Ça semble absurde (l'enfant 384 « avant » le
 parent 632 ?) — en réalité Task Manager **masque juste la filiation**, il ne la
