@@ -59,7 +59,6 @@ lister les processus en CLI :
 | `Get-Process` (alias `ps`) | PowerShell |
 | `wmic process` | CMD (ancienne méthode, encore vue) |
 
-### À retenir (partie 1)
 Pour juger si un processus est suspect, le trio gagnant c'est :
 **nom + chemin de l'exécutable (image path) + processus parent.**
 Task Manager te donne les deux premiers ; Process Explorer / Hacker ajoute le
@@ -120,14 +119,10 @@ doit t'alerter, et **pourquoi** :
 - **un processus qui ne tourne pas en Session 0** → le vrai System est en Session 0
   (côté système). Un « System » dans une session utilisateur est suspect.
 
-### À retenir (partie 2)
 `System` = PID **4**, **une** instance, parent **PID 0**, **Session 0**, lancé au
 boot, lié au noyau (`ntoskrnl.exe`). Toute déviation sur un de ces points mérite
 une analyse approfondie.
 
----
-
-### Bonus : c'est quoi la Session 0 ?
 Windows isole les processus dans des **sessions**. La **Session 0** est réservée
 aux **services et processus système** (pas d'interface graphique, par sécurité).
 Les processus **utilisateur** (ton `explorer.exe`, tes applis) tournent en
