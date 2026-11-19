@@ -23,16 +23,20 @@ https://github.com/volatilityfoundation/volatility3
 Note : en lisant des articles de blog sur Volatility, tu pourras croiser la syntaxe
 de Volatility 2. 
 
+---
+
 L'extraction d'une image mémoire peut être effectuée de différentes manières, selon les besoins de votre investigation. 
 
 Les outils : 
 
-FTK Imager
-Redline
-DumpIt.exe
-win32dd.exe / win64dd.exe
-Memoryze
-FastDump
+| Outil | Note |
+|---|---|
+| **FTK Imager** | suite forensic (AccessData) ; capture RAM + imagerie disque, interface graphique |
+| **Redline** | outil d'investigation de FireEye/Mandiant ; collecte et analyse mémoire |
+| **DumpIt.exe** | capture rapide de la RAM en un clic (très simple, portable) |
+| **win32dd.exe / win64dd.exe** | acquisition mémoire en ligne de commande (versions 32 / 64 bits) |
+| **Memoryze** | outil d'acquisition et d'analyse mémoire (Mandiant) |
+| **FastDump** | outil de capture mémoire (HBGary) |
 
 L'utilisation d'un outil d'extraction sur une machine physique peut prendre beaucoup de temps.
 
