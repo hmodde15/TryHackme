@@ -433,9 +433,40 @@ réponse : Y
 
 9 - Quel processus suspect est en cours d'exécution avec le PID 740 dans le cas 002 ?
 
+On utilise la commande : vol -f Investigation-2.raw windows.pstree
 
+![Tryhackme](00-Images/wanna.png)
 
+On peut voir un processus @WanaDecryptor@ lacé par tasksche.exe
 
+réponse : @WanaDecryptor@
+
+10 - Quel est le chemin complet du binaire suspect associé au PID 740 dans le dossier 002 ?
+
+Je reproduis ce que j'ai fais pour la partie 1 :
+
+1ere commande : vol -f Investigation-2.raw -o /home/thmanalyst/ windows.memmap.Memmap --pid 740 --dump
+2eme commande : strings pid.740.dmp | grep -i "@Wana"
+
+![Tryhackme](00-Images/wanna2.png)
+
+réponse : C:\Intel\ivecuqmanpnirkt615\@WanaDecryptor@.exe
+
+11 - Quel est le processus parent du PID 740 dans le cas 002 ?
+
+réponse : tasksche.exe
+
+12 - Quel est le PID du processus parent suspect lié au déchiffreur dans le cas 002 ?
+
+réponse : 1940
+
+13 - D’après les informations dont nous disposons actuellement, quel logiciel malveillant est présent sur le système dans le cadre du dossier 002 ?
+
+WanaDecryptor => Ransomware Wannacry. 
+
+réponse : WannaCry
+
+14 - 
 
 
 
