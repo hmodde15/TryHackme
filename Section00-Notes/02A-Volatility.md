@@ -281,6 +281,23 @@ Le fichier mémoire se trouve dans : `/Scenarios/Investigations/Investigation-2.
 
 1 - Quelle est la version de build de la machine hôte dans le cas 001 ?
 
+On utilise la commande : vol -f Investigation-1.vmem windows.info
+
+![Tryhackme](00-Images/info.png)
+
+réponse : 2600.xpsp.080413-2111
+
+2 - À quel moment le fichier mémoire a-t-il été acquis dans le dossier 001 ?
+
+On regarde la ligne "SystemTime".
+
+réponse : 2012-07-22 02:45:08
+
+3 - Quel processus peut être considéré comme suspect dans le cas 001 ?
+
+
+
+
 
 
 
