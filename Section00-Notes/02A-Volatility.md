@@ -497,8 +497,6 @@ Le malware fonctionne comme ça :
 
 Ça lui évite des bugs, des plantages ou d'attirer l'attention en tournant en double.
 
-### En quoi ça t'aide, toi, l'analyste
-
 Le nom du mutex devient un **IOC** (indicateur de compromission) précieux :
 
 * il est souvent **codé en dur** et **unique** à une famille de malware → il sert
