@@ -25,9 +25,7 @@ de Volatility 2.
 
 ---
 
-L'extraction d'une image mémoire peut être effectuée de différentes manières, selon les besoins de votre investigation. 
-
-Les outils : 
+L'extraction d'une image mémoire peut être effectuée de différentes manières, selon les besoins de votre investigation :
 
 | Outil | Note |
 |---|---|
