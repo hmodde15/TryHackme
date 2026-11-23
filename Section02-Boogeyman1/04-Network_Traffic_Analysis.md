@@ -80,8 +80,6 @@ Quel est le numéro de carte bancaire contenu dans le fichier exfiltré ?
 
 On récupére le traffic DNS transmis à l'attaquant avec tshark avec la commande : tshark -r capture.pcapng -Y "dns && ip.dst == 167.71.211.113" -T fields -e dns.qry.name | awk '!seen[$0]++' > dns.txt
 
-![Tryhackme](00-Images/tshark.png) 
-
 Puis je retire le domaine pour avoir un fichier propre : grep '\.bpakcaging\.xyz$' dns.txt | cut -d'.' -f1 | tr -d '\n' | xxd -r -p > dns.kdbx
 
 ![Tryhackme](00-Images/xxd.png) 
