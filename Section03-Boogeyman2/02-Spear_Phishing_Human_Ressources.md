@@ -24,6 +24,9 @@ réponse : maxine.beck@quicklogisticsorg.onmicrosoft.com
 
 3 - Quel est le nom du document malveillant joint ?
 
+![Tryhackme](00-Images/word.png) 
+
+réponse : Resume_WesleyTaylor.doc
 
 4 - Quel est le hash MD5 de la pièce jointe malveillante ?
 
