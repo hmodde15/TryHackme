@@ -30,5 +30,8 @@ réponse : Resume_WesleyTaylor.doc
 
 4 - Quel est le hash MD5 de la pièce jointe malveillante ?
 
+![Tryhackme](00-Images/md5.png) 
+
+réponse : 52c4384a0b9e248b95804352ebec6c5b
 
 5 - Quelle URL est utilisée pour télécharger la charge utile (payload) de la deuxième étape, via la macro présente dans le document ?
