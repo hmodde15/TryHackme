@@ -50,9 +50,13 @@ réponse : "C:\Windows\System32\rundll32.exe" D:\review.dat,DllRegisterServer
 
 réponse : Review 
 
-
 5 - L'exécution du fichier implanté sur la machine a initié une potentielle connexion vers un serveur de commande et de contrôle (C2). Quelles sont l'adresse IP et le port utilisés pour cette connexion ? (format : IP:port)
 
+Je mets un filtre sur l'event ID 3 pour voir avec quelle IP la machine communique. Je rajoute un filtre destination.port pour l'obtenir.
+
+![Tryhackme](00-Images/ip.png) 
+
+réponse : 165.232.170.151:80
 
 6 - L'attaquant a découvert que l'accès dont il dispose correspond à celui d'un administrateur local. Quel est le nom du processus utilisé par l'attaquant pour contourner l'UAC (User Account Control) ?
 
