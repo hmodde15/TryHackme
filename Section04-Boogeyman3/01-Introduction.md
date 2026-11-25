@@ -4,11 +4,17 @@ Sans déclencher aucune des défenses de sécurité de Quick Logistics LLC, le B
 
 L'e-mail paraissait douteux, mais Evan a tout de même ouvert la pièce jointe malgré ses doutes. Après avoir ouvert le document joint et constaté que rien ne se passait, Evan a signalé l'e-mail de phishing à l'équipe de sécurité.
 
+![Tryhackme](00-Images/mail.png) 
+
 ## Investigation initiale
 
 Après avoir reçu le signalement de phishing, l'équipe de sécurité a examiné le poste de travail du PDG. Elle y a découvert la pièce jointe de l'e-mail dans le dossier **Téléchargements** de la victime.
 
+![Tryhackme](00-Images/pdf.png) 
+
 L'équipe de sécurité a aussi repéré un fichier à l'intérieur de la charge utile **ISO**, comme le montre l'image ci-dessous.
+
+![Tryhackme](00-Images/dvd.png) 
 
 Enfin, l'équipe de sécurité estime que l'incident s'est produit entre le **29 et le 30 août 2023**.
 
