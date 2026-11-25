@@ -24,6 +24,16 @@ Enfin, l'équipe de sécurité estime que l'incident s'est produit entre le **29
 
 1 - Quel est le PID du processus ayant exécuté la charge utile initiale (stage 1) ?
 
+On filtre sur l'event ID 1 car on recherche la création d'un processus et sur l'utilisateur Evan.
+
+J'ajoute les filtres process.name, process.pid, process.command_line et process.parent.name afin d'y voir plus clair
+
+![Tryhackme](00-Images/pid.png) 
+
+On observe un process créer (mshta.exe) depuis explorer.exe qui interagit avec le fichier pdf malveillant.
+
+réponse : mshta.exe
+
 
 2 - La charge utile initiale a tenté d'implanter un fichier à un autre emplacement. Quelle est la ligne de commande complète correspondant à cette exécution ?
 
