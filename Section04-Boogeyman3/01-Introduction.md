@@ -32,8 +32,7 @@ J'ajoute les filtres process.name, process.pid, process.command_line et process.
 
 On observe un process (mshta.exe) lancé depuis explorer.exe qui interagit avec le fichier pdf malveillant.
 
-réponse : mshta.exe
-
+réponse : 6392
 
 2 - La charge utile initiale a tenté d'implanter un fichier à un autre emplacement. Quelle est la ligne de commande complète correspondant à cette exécution ?
 
