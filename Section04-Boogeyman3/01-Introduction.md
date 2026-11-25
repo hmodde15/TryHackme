@@ -60,6 +60,13 @@ réponse : 165.232.170.151:80
 
 6 - L'attaquant a découvert que l'accès dont il dispose correspond à celui d'un administrateur local. Quel est le nom du processus utilisé par l'attaquant pour contourner l'UAC (User Account Control) ?
 
+En faisant des recherches sur les processus des logs, je suis tombé sur fodhelper.exe. Apres mes recherches, il s'agit d'un outil permettant de contourner l'UAC Windows :
+
+![Tryhackme](00-Images/fodhelper.png) 
+
+![Tryhackme](00-Images/fodhelper2.png) 
+
+réponse : fodhelper.exe
 
 7 - Disposant d'un accès à hauts privilèges sur la machine, l'attaquant a tenté d'extraire les identifiants (credentials) présents sur celle-ci. Quel est le lien GitHub utilisé par l'attaquant pour télécharger un outil destiné à l'extraction d'identifiants ?
 
