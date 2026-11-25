@@ -38,9 +38,11 @@ réponse : 6392
 
 On observe que mshta.exe à lancé xcopy. La commande qui a été lancé est C:\Windows\System32\xcopy.exe" /s /i /e /h D:\review.dat C:\Users\EVAN~1.HUT\AppData\Local\Temp\review.dat
 
-
 3 - Le fichier implanté a finalement été utilisé et exécuté par la charge utile initiale. Quelle est la ligne de commande complète correspondant à cette exécution ?
 
+On continue de suivre les logs.
+
+réponse : "C:\Windows\System32\rundll32.exe" D:\review.dat,DllRegisterServer
 
 4 - La charge utile initiale a mis en place un mécanisme de persistance. Quel est le nom de la tâche planifiée créée par le script malveillant ?
 
