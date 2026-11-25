@@ -26,7 +26,7 @@ Enfin, l'équipe de sécurité estime que l'incident s'est produit entre le **29
 
 On filtre sur l'event ID 1 car on recherche la création d'un processus et sur l'utilisateur Evan.
 
-J'ajoute les filtres process.name, process.pid, process.command_line et process.parent.name afin d'y voir plus clair
+J'ajoute les filtres process.name, process.pid, process.command_line et process.parent.name afin d'y voir plus clair.
 
 ![Tryhackme](00-Images/pid.png) 
 
