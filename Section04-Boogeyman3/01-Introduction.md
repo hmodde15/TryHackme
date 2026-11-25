@@ -70,6 +70,14 @@ réponse : fodhelper.exe
 
 7 - Disposant d'un accès à hauts privilèges sur la machine, l'attaquant a tenté d'extraire les identifiants (credentials) présents sur celle-ci. Quel est le lien GitHub utilisé par l'attaquant pour télécharger un outil destiné à l'extraction d'identifiants ?
 
+J'utilise un filtre sur github.com et sur event.code 1.
+
+On observe un téléchargement de Mimikatz.
+
+![Tryhackme](00-Images/mimi.png) 
+
+réponse : https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip
+
 
 8 - Après avoir réussi à extraire les identifiants de la machine, l'attaquant les a utilisés pour accéder à une autre machine. Quels sont le nom d'utilisateur et le hash correspondant à ces nouveaux identifiants ? (format : nom_utilisateur:hash)
 
