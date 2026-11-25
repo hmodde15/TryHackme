@@ -36,6 +36,8 @@ réponse : 6392
 
 2 - La charge utile initiale a tenté d'implanter un fichier à un autre emplacement. Quelle est la ligne de commande complète correspondant à cette exécution ?
 
+On observe que mshta.exe à lancé xcopy. La commande qui a été lancé est C:\Windows\System32\xcopy.exe" /s /i /e /h D:\review.dat C:\Users\EVAN~1.HUT\AppData\Local\Temp\review.dat
+
 
 3 - Le fichier implanté a finalement été utilisé et exécuté par la charge utile initiale. Quelle est la ligne de commande complète correspondant à cette exécution ?
 
