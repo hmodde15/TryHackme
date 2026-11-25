@@ -19,3 +19,31 @@ L'équipe de sécurité a aussi repéré un fichier à l'intérieur de la charge
 Enfin, l'équipe de sécurité estime que l'incident s'est produit entre le **29 et le 30 août 2023**.
 
 À partir de ces premiers éléments, ta mission est d'analyser la compromission et d'en évaluer l'impact.
+
+### Question :
+
+1 - Quel est le PID du processus ayant exécuté la charge utile initiale (stage 1) ?
+
+
+2 - La charge utile initiale a tenté d'implanter un fichier à un autre emplacement. Quelle est la ligne de commande complète correspondant à cette exécution ?
+
+
+3 - Le fichier implanté a finalement été utilisé et exécuté par la charge utile initiale. Quelle est la ligne de commande complète correspondant à cette exécution ?
+
+
+4 - La charge utile initiale a mis en place un mécanisme de persistance. Quel est le nom de la tâche planifiée créée par le script malveillant ?
+
+
+5 - L'exécution du fichier implanté sur la machine a initié une potentielle connexion vers un serveur de commande et de contrôle (C2). Quelles sont l'adresse IP et le port utilisés pour cette connexion ? (format : IP:port)
+
+
+6 - L'attaquant a découvert que l'accès dont il dispose correspond à celui d'un administrateur local. Quel est le nom du processus utilisé par l'attaquant pour contourner l'UAC (User Account Control) ?
+
+
+7 - Disposant d'un accès à hauts privilèges sur la machine, l'attaquant a tenté d'extraire les identifiants (credentials) présents sur celle-ci. Quel est le lien GitHub utilisé par l'attaquant pour télécharger un outil destiné à l'extraction d'identifiants ?
+
+
+8 - Après avoir réussi à extraire les identifiants de la machine, l'attaquant les a utilisés pour accéder à une autre machine. Quels sont le nom d'utilisateur et le hash correspondant à ces nouveaux identifiants ? (format : nom_utilisateur:hash)
+
+
+9 - À l'aide de ces nouveaux identifiants, l'attaquant a tenté d'énumérer les partages de fichiers accessibles. Quel est le nom du fichier auquel l'attaquant a accédé depuis un partage distant ?
