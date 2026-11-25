@@ -46,6 +46,10 @@ réponse : "C:\Windows\System32\rundll32.exe" D:\review.dat,DllRegisterServer
 
 4 - La charge utile initiale a mis en place un mécanisme de persistance. Quel est le nom de la tâche planifiée créée par le script malveillant ?
 
+![Tryhackme](00-Images/review.png) 
+
+réponse : Review 
+
 
 5 - L'exécution du fichier implanté sur la machine a initié une potentielle connexion vers un serveur de commande et de contrôle (C2). Quelles sont l'adresse IP et le port utilisés pour cette connexion ? (format : IP:port)
 
