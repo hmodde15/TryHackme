@@ -153,5 +153,13 @@ réponse : 1000
 
 2 - Quel type de scan est utilisé pour scanner le port TCP 80 ?
 
+J'utilise la commande tcp.port == 80 :
+
+![Tryhackme](00-Images/port80.png) 
+
+On observe un SYN, SYN ACK, ACK donc il s'agit d'un scan TCP Connect 
+
+3 - Combien y a-t-il de messages « UDP close port » ?
+
 
 
