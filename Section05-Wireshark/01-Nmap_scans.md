@@ -22,7 +22,7 @@ Chaque flag TCP correspond à un bit, et `tcp.flags` est la **somme** des bits a
 
 → SYN+ACK = 2 + 16 = **18**, RST+ACK = 4 + 16 = **20**.
 
-### Deux façons de filtrer
+## Deux façons de filtrer
 
 | Objectif | Filtre **strict** (uniquement ces flags) | Filtre **souple** (ce flag est présent, les autres sont libres) |
 |---|---|---|
@@ -44,7 +44,7 @@ Recherche globale : `tcp` / `udp`
 - C'est le **seul type de scan TCP possible sans droits root**, donc utilisé par les utilisateurs non privilégiés.
 - **Taille de fenêtre généralement > 1024 octets** : c'est une vraie connexion, qui s'attend à recevoir des données.
 
-### Motifs
+## Motifs
 
 | Port ouvert | Port fermé |
 |---|---|
@@ -53,7 +53,7 @@ Recherche globale : `tcp` / `udp`
 | `ACK →` | |
 | `RST, ACK →` (Nmap ferme la connexion) | |
 
-### Filtre de détection
+## Filtre de détection
 
 ```
 tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size > 1024
@@ -69,7 +69,7 @@ tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size > 1024
 - C'est le **scan par défaut** de Nmap quand il est lancé avec des privilèges.
 - **Taille de fenêtre généralement ≤ 1024 octets** : la connexion ne va pas jusqu'au bout et n'attend aucune donnée.
 
-### Motifs
+## Motifs
 
 | Port ouvert | Port fermé |
 |---|---|
@@ -77,13 +77,13 @@ tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size > 1024
 | `← SYN, ACK` | `← RST, ACK` |
 | `RST →` (Nmap coupe tout de suite) | |
 
-### Filtre de détection
+## Filtre de détection
 
 ```
 tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size <= 1024
 ```
 
-### Connect vs SYN : comment les distinguer
+## Connect vs SYN : comment les distinguer
 
 | | TCP Connect (`-sT`) | SYN (`-sS`) |
 |---|---|---|
@@ -103,20 +103,20 @@ tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size <= 1024
 - **Port ouvert** : en général **aucune réponse**.
 - **Port fermé** : la cible renvoie un **ICMP Type 3, Code 3** (*Destination unreachable – Port unreachable*).
 
-### Motifs
+## Motifs
 
 | Port ouvert | Port fermé |
 |---|---|
 | `UDP →` | `UDP →` |
 | *(silence)* | `← ICMP Type 3, Code 3` |
 
-### Filtre de détection
+## Filtre de détection
 
 ```
 icmp.type==3 and icmp.code==3
 ```
 
-### Astuce : retrouver le port concerné
+## Astuce : retrouver le port concerné
 
 Un message ICMP d'erreur **encapsule la requête d'origine**. Dans le panneau de détails du paquet ICMP, déplie la section ICMP : tu y trouveras l'en-tête IP et UDP de la requête initiale, avec le **port de destination** qui a été jugé fermé.
 
@@ -130,15 +130,21 @@ Un message ICMP d'erreur **encapsule la requête d'origine**. Dans le panneau de
 | SYN | `nmap -sS` | `tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size <= 1024` |
 | UDP | `nmap -sU` | `icmp.type==3 and icmp.code==3` |
 
-### Méthode d'analyse
+## Méthode d'analyse
 
 1. Appliquer le **filtre générique** pour repérer l'anomalie : beaucoup de SYN ou d'ICMP vers de nombreux ports depuis **une même source**.
 2. **Identifier l'IP du scanner** et la cible (`Statistics > Conversations` aide beaucoup).
 3. **Zoomer** sur un port précis pour confirmer le motif (ouvert ou fermé).
 4. Pour UDP, **lire la requête encapsulée** dans l'ICMP pour connaître le port.
 
-### ⚠️ Limites à garder en tête
+## ⚠️ Limites à garder en tête
 
 - La règle des **1024 octets est une heuristique**, pas une vérité absolue : des options Nmap ou certains OS peuvent la fausser.
 - Un port UDP **sans réponse** n'est pas forcément ouvert : il peut aussi être **filtré** par un firewall. Nmap le marque alors `open|filtered`.
 - Le signal le plus fiable reste le **volume** : une seule source qui contacte **beaucoup de ports différents en peu de temps**.
+
+### Questions :
+
+1 - Quel est le nombre total de scans « TCP Connect » ?
+
+2 - Quel type de scan est utilisé pour scanner le port TCP 80 ?
