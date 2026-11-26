@@ -110,16 +110,20 @@ eth.dst == <mac-attaquant> and http                    # trafic détourné vers 
 
 1 - Combien de requêtes ARP ont été créées par l'attaquant ?
 
-J'utilise la commande arp.duplicate-address-detected or arp.duplicate-address-frame pour voir les doublons :
+J'identifie d'abord l'attaquant avec arp.duplicate-address-detected or arp.duplicate-address-frame : la MAC 00:0c:29:e2:18:b4 revendique l'IP de la passerelle 192.168.1.1, déjà utilisée par 50:78:b3:f3:cd:f4. 
+
+
 
 ![Tryhackme](00-Images/arp1.png) 
 
-On peut voir ceci 
+On peut voir ceci :
 
 192.168.1.1 - 00-0c-29-e2-18-b4
-192.168.1.12 - 00-0c-29-e2-18-b4
+192.168.1.1 - 00-0c-29-e2-18-b4
 
 ![Tryhackme](00-Images/arp2.png) 
+
+J'utilise ensuite  arp.opcode == 1 && arp.src.hw_mac == 00:0c:29:e2:18:b4
 
 ![Tryhackme](00-Images/arp3.png) 
 
