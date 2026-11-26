@@ -195,43 +195,9 @@ grep -iE "union|select|<script|\.\./|etc/passwd|cmd=|whoami" access.log
 grep "203.0.113.5" access.log
 ```
 
-**Kibana / KQL :**
 
-```
-http.request.method : "POST" and url.path : *login*
-http.response.status_code >= 400
-user_agent.original : *sqlmap*
-url.original : *etc/passwd*
-```
 
 **En ligne :** CyberChef (décodage), URL Decoder, VirusTotal, AbuseIPDB.
 
 ---
 
-## Rappel : décoder une URL encodée
-
-Les caractères spéciaux sont encodés en `%` + code hexadécimal :
-
-| Encodé | Caractère | Encodé | Caractère |
-|---|---|---|---|
-| `%20` ou `+` | espace | `%3C` | `<` |
-| `%27` | `'` | `%3E` | `>` |
-| `%22` | `"` | `%2F` | `/` |
-| `%3D` | `=` | `%2E` | `.` |
-| `%3B` | `;` | `%7C` | `|` |
-
-```
-%3Cscript%3Ealert(1)%3C%2Fscript%3E   →   <script>alert(1)</script>
-..%2F..%2Fetc%2Fpasswd                →   ../../etc/passwd
-```
-
-```bash
-# décoder en ligne de commande
-python3 -c "import urllib.parse,sys; print(urllib.parse.unquote(sys.argv[1]))" "%3Cscript%3E"
-```
-
-⚠️ Un payload peut être **double-encodé** (`%252F` → `%2F` → `/`) pour contourner un filtre : il faut décoder jusqu'à ce que la chaîne ne change plus. Dans CyberChef, enchaîne plusieurs **URL Decode**.
-
-> **HTTPS** : le contenu (URL, headers, body) est **chiffré**. Sur le réseau, tu ne vois que l'IP, le port `443`
-> et le nom de domaine (**SNI** dans le TLS Client Hello : filtre `tls.handshake.extensions_server_name`).
-> Pour voir le reste, il faut les **logs du serveur**, un **proxy** ou les **clés TLS**.
