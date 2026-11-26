@@ -75,8 +75,6 @@ On voit alors que **tous les paquets HTTP de la victime partent vers la MAC « b
 | **Passerelle / routeur** | `50:78:b3:f3:cd:f4` | `192.168.1.1` |
 | **Victime** | `00:0c:29:98:c7:a8` | `192.168.1.12` |
 
-> ⚠️ Le support du cours contient des coquilles (`192.1681.1`, et la MAC de la passerelle recopiée pour la victime). Les valeurs ci-dessus sont les bonnes, cohérentes avec le reste de l'analyse.
-
 ---
 
 ## 5. Bonnes pratiques d'analyste
