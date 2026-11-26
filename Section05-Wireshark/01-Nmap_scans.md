@@ -147,4 +147,11 @@ Un message ICMP d'erreur **encapsule la requête d'origine**. Dans le panneau de
 
 1 - Quel est le nombre total de scans « TCP Connect » ?
 
+J'utilise la commande tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size > 1024
+
+réponse : 1000
+
 2 - Quel type de scan est utilisé pour scanner le port TCP 80 ?
+
+
+
