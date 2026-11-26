@@ -167,7 +167,13 @@ réponse : 1083
 
 4 - Quel port UDP, compris dans la plage 55-70, est ouvert ?
 
+J'utilise un filtre pour obtenir la liste des ports de destination entre 55 et 70 avec udp.dstport >= 50 and udp.port  <= 70
 
+![Tryhackme](00-Images/udp.png) 
+
+On observe que le port 67 et 69 renvoient "Destination Unreachable" ce qui signifie que les ports sont fermés.
+
+réponse : 68
 
 
 
