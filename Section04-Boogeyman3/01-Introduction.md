@@ -78,8 +78,18 @@ On observe un téléchargement de Mimikatz.
 
 réponse : https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip
 
-
 8 - Après avoir réussi à extraire les identifiants de la machine, l'attaquant les a utilisés pour accéder à une autre machine. Quels sont le nom d'utilisateur et le hash correspondant à ces nouveaux identifiants ? (format : nom_utilisateur:hash)
 
-
 9 - À l'aide de ces nouveaux identifiants, l'attaquant a tenté d'énumérer les partages de fichiers accessibles. Quel est le nom du fichier auquel l'attaquant a accédé depuis un partage distant ?
+
+10 - Après avoir récupéré le contenu du fichier distant, l'attaquant a utilisé les nouveaux identifiants pour se déplacer latéralement. Quels sont les nouveaux identifiants découverts par l'attaquant ? (format : nom_utilisateur:mot_de_passe)
+
+11 - Quel est le nom d'hôte de la machine de laboratoire de l'attaquant pour sa tentative de mouvement latéral ?
+
+12 - En se basant sur la commande malveillante exécutée par l'attaquant depuis la première machine pour effectuer un déplacement latéral, quel est le nom du processus parent de la commande malveillante exécutée sur la deuxième machine compromise ?
+
+13 - L'attaquant a ensuite extrait les hashs sur cette seconde machine. Quel est le nom d'utilisateur et le hash des identifiants ainsi récupérés ? (format : nom_utilisateur:hash)
+
+14 - Après avoir obtenu l'accès au contrôleur de domaine, l'attaquant a tenté d'extraire les hashs via une attaque DCSync. Outre le compte administrateur, quel compte l'attaquant a-t-il extrait ?
+
+15 - Après avoir extrait les hashs, l'attaquant a tenté de télécharger un autre fichier distant afin d'exécuter un ransomware. Quel est le lien utilisé par l'attaquant pour télécharger le binaire du ransomware ?
