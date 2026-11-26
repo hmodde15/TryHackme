@@ -131,6 +131,12 @@ réponse : 284
 
 2 - Combien de paquets HTTP ont été reçus par l'attaquant ?
 
+J'utilise la commande : eth.addr == 00-0c-29-e2-18-b4 && http
+
+![Tryhackme](00-Images/http.png) 
+
+réponse : 90
+
 3 - Combien d'identifiants et de mots de passe ont été interceptés ?
 
 4 - Quel est le mot de passe du « Client986 » ?
