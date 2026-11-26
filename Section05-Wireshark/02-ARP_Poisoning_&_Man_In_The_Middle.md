@@ -105,3 +105,15 @@ arp.duplicate-address-detected or arp.duplicate-address-frame   # conflit = pois
 arp.opcode == 1 and arp.src.hw_mac == <mac>            # flood depuis une MAC
 eth.dst == <mac-attaquant> and http                    # trafic détourné vers l'attaquant
 ```
+
+### Question :
+
+1 - Combien de requêtes ARP ont été créées par l'attaquant ?
+
+2 - Combien de paquets HTTP ont été reçus par l'attaquant ?
+
+3 - Combien d'identifiants et de mots de passe ont été interceptés ?
+
+4 - Quel est le mot de passe du « Client986 » ?
+
+5 - Quel est le commentaire fourni par le « Client354 » ?
