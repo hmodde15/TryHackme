@@ -110,16 +110,16 @@ eth.dst == <mac-attaquant> and http                    # trafic détourné vers 
 
 1 - Combien de requêtes ARP ont été créées par l'attaquant ?
 
-J'identifie d'abord l'attaquant avec arp.duplicate-address-detected or arp.duplicate-address-frame : la MAC 00:0c:29:e2:18:b4 revendique l'IP de la passerelle 192.168.1.1, déjà utilisée par 50:78:b3:f3:cd:f4. 
-
-
+J'identifie d'abord l'attaquant avec arp.duplicate-address-detected or arp.duplicate-address-frame : la MAC 00:0c:29:e2:18:b4 veut prendre l'IP de la passerelle 192.168.1.1, déjà utilisée par 50:78:b3:f3:cd:f4. 
 
 ![Tryhackme](00-Images/arp1.png) 
 
 On peut voir ceci :
 
-192.168.1.1 - 00-0c-29-e2-18-b4
-192.168.1.1 - 00-0c-29-e2-18-b4
+| IP | Adresse MAC | Statut |
+|---|---|---|
+| `192.168.1.1` | `50:78:b3:f3:cd:f4` | ✅ Légitime (passerelle) |
+| `192.168.1.1` | `00:0c:29:e2:18:b4` | ❌ Spoofing (attaquant) |
 
 ![Tryhackme](00-Images/arp2.png) 
 
@@ -128,8 +128,6 @@ J'utilise ensuite  arp.opcode == 1 && arp.src.hw_mac == 00:0c:29:e2:18:b4
 ![Tryhackme](00-Images/arp3.png) 
 
 réponse : 284
-
-Je remarque que 2 IP ont la meme adresse MAC avec la commande 
 
 2 - Combien de paquets HTTP ont été reçus par l'attaquant ?
 
