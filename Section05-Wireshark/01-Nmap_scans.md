@@ -161,5 +161,13 @@ On observe un SYN, SYN ACK, ACK donc il s'agit d'un scan TCP Connect
 
 3 - Combien y a-t-il de messages « UDP close port » ?
 
+J'utilise la commande icmp.type==3 and icmp.code==3
+
+réponse : 1083
+
+4 - Quel port UDP, compris dans la plage 55-70, est ouvert ?
+
+
+
 
 
