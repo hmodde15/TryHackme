@@ -80,16 +80,73 @@ réponse : https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-202209
 
 8 - Après avoir réussi à extraire les identifiants de la machine, l'attaquant les a utilisés pour accéder à une autre machine. Quels sont le nom d'utilisateur et le hash correspondant à ces nouveaux identifiants ? (format : nom_utilisateur:hash)
 
+Je mets un filtre sur mimikatz (*mimi*) et je fais apparaitre les informations qui nous intéresse comme le champ process.command_line.
+
+![Tryhackme](00-Images/hash.png) 
+
+réponse : itadmin:F84769D250EB95EB2D7D8B4A1C5613F2
+
 9 - À l'aide de ces nouveaux identifiants, l'attaquant a tenté d'énumérer les partages de fichiers accessibles. Quel est le nom du fichier auquel l'attaquant a accédé depuis un partage distant ?
+
+On observe la commande suivante :
+ 
+```powershell
+ls FileSystem::\\WKSTN-1327.quicklogistics.org\ITFiles
+```
+ 
+puis :
+ 
+```powershell
+cat FileSystem::\\WKSTN-1327.quicklogistics.org\ITFiles\IT_Automation.ps1
+```
+
+![Tryhackme](00-Images/automation.png) 
+
+réponse : IT_Automation.ps1
 
 10 - Après avoir récupéré le contenu du fichier distant, l'attaquant a utilisé les nouveaux identifiants pour se déplacer latéralement. Quels sont les nouveaux identifiants découverts par l'attaquant ? (format : nom_utilisateur:mot_de_passe)
 
+![Tryhackme](00-Images/allan.png) 
+
+réponse : QUICKLOGISTICS\allan.smith:Tr!ckyP@ssw0rd987
+
 11 - Quel est le nom d'hôte de la machine de laboratoire de l'attaquant pour sa tentative de mouvement latéral ?
+
+réponse : WKSTN-1327 (voir photo question 10) 
 
 12 - En se basant sur la commande malveillante exécutée par l'attaquant depuis la première machine pour effectuer un déplacement latéral, quel est le nom du processus parent de la commande malveillante exécutée sur la deuxième machine compromise ?
 
+Je mets un filtre sur l'utilisateur allan.smith ainsi que sur la machine compromise WKSTN-1327.
+
+![Tryhackme](00-Images/wsmprovhost.exe.png) 
+
+On peut voir whoami.exe lancé par wsmprovhost.exe.
+
+réponse : wsmprovhost.exe
+
 13 - L'attaquant a ensuite extrait les hashs sur cette seconde machine. Quel est le nom d'utilisateur et le hash des identifiants ainsi récupérés ? (format : nom_utilisateur:hash)
+
+La même technique est utilisé sur la seconde machine :
+
+![Tryhackme](00-Images/admin.png) 
+
+réponse : administrator:00f80f2538dcb54e7adc715c0e7091ec
 
 14 - Après avoir obtenu l'accès au contrôleur de domaine, l'attaquant a tenté d'extraire les hashs via une attaque DCSync. Outre le compte administrateur, quel compte l'attaquant a-t-il extrait ?
 
+Je sais que l'attaquant a utilisé l'outil DCSync. Je mets donc un filtre dessus :
+
+![Tryhackme](00-Images/dcsync.png) 
+
+réponse : backupda
+
 15 - Après avoir extrait les hashs, l'attaquant a tenté de télécharger un autre fichier distant afin d'exécuter un ransomware. Quel est le lien utilisé par l'attaquant pour télécharger le binaire du ransomware ?
+
+Je mets un filtre sur le DC01 et je lis les logs :
+
+![Tryhackme](00-Images/ransom.png) 
+
+réponse : http://ff.sillytechninja.io/ransomboogey.exe
+
+
+
