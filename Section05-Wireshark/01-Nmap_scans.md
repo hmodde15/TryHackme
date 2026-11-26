@@ -171,7 +171,7 @@ J'utilise un filtre pour obtenir la liste des ports de destination entre 55 et 7
 
 ![Tryhackme](00-Images/udp.png) 
 
-On observe que le port 67 et 69 renvoient "Destination Unreachable" ce qui signifie que les ports sont fermés.
+On observe que le port 67 et 69 renvoient "Destination Unreachable" ce qui signifie que les ports ne sont pas disponibles.
 
 réponse : 68
 
