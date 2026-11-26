@@ -123,6 +123,8 @@ On peut voir ceci
 
 ![Tryhackme](00-Images/arp3.png) 
 
+réponse : 284
+
 Je remarque que 2 IP ont la meme adresse MAC avec la commande 
 
 2 - Combien de paquets HTTP ont été reçus par l'attaquant ?
