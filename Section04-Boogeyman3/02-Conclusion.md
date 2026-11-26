@@ -86,12 +86,3 @@ domaines) et de bloquer les fichiers ISO / HTA en pièce jointe.
 (`sekurlsa::logonpasswords`, `sekurlsa::pth`, `lsadump::dcsync`), PowerShell Remoting
 (WinRM).
 
-**Requêtes KQL utiles :**
-
-```
-process.command_line : *review.dat*
-process.name : "powershell.exe" and process.command_line : *Register-ScheduledTask*
-process.command_line : *github*
-process.command_line : *dcsync*
-process.parent.name : "wsmprovhost.exe"
-```
