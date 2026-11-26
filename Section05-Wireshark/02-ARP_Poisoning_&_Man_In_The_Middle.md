@@ -110,6 +110,8 @@ eth.dst == <mac-attaquant> and http                    # trafic détourné vers 
 
 1 - Combien de requêtes ARP ont été créées par l'attaquant ?
 
+Je remarque que 2 IP ont la meme adresse MAC avec la commande 
+
 2 - Combien de paquets HTTP ont été reçus par l'attaquant ?
 
 3 - Combien d'identifiants et de mots de passe ont été interceptés ?
